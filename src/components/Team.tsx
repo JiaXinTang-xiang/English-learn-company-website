@@ -66,8 +66,8 @@ export default function Team() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             我们的团队
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            一支充满激情与创新精神的专业团队
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+            我们是一群状的追梦者，坚信存储技术可以更加普惠。从第一行代码到第一块芯片，从第一次调试到第一次成功，每一步都凝聚着团队的心血。我们的目标很简单——让每个人都能用上更快、更稳、更实惠的存储产品。
           </p>
         </div>
 

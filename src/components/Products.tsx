@@ -177,11 +177,44 @@ export default function Products() {
                 controls
                 className="w-full h-auto"
                 poster={product1Image}
+                preload="metadata"
+                onError={(e) => {
+                  console.error('Video error:', e);
+                  const target = e.target as HTMLVideoElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    parent.innerHTML = `
+                      <div class="flex flex-col items-center justify-center h-64 text-gray-400">
+                        <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <p>视频加载失败</p>
+                        <a href="${import.meta.env.BASE_URL}media1.mp4" target="_blank" class="mt-2 text-blue-400 hover:underline">点击下载视频</a>
+                      </div>
+                    `;
+                  }
+                }}
               >
+                <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4; codecs=avc1.42E01E, mp4a.40.2" />
                 <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4" />
                 您的浏览器不支持视频播放
               </video>
             </div>
+          </div>
+
+          {/* Download link */}
+          <div className="mt-6">
+            <a
+              href={import.meta.env.BASE_URL + 'media1.mp4'}
+              download="TF-SSD-Demo.mp4"
+              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              <svg className="w-5 h-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              下载视频
+            </a>
           </div>
         </div>
       </div>
