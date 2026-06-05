@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ScrollAnimation from './ScrollAnimation'
 
 const services = [
   {
@@ -15,7 +16,7 @@ const services = [
       'Service: Free repair or replacement',
       'Response Time: Within 24 hours'
     ],
-    color: 'from-blue-500 to-cyan-500'
+    gradient: 'from-indigo-500 to-blue-500'
   },
   {
     icon: (
@@ -31,7 +32,7 @@ const services = [
       'Shipping: Covered by us for quality issues',
       'Refund: Within 3 business days after receiving the return'
     ],
-    color: 'from-purple-500 to-pink-500'
+    gradient: 'from-purple-500 to-indigo-500'
   },
   {
     icon: (
@@ -47,7 +48,7 @@ const services = [
       'Response Time: Within 2 hours on business days',
       'Remote Assistance: Available'
     ],
-    color: 'from-green-500 to-teal-500'
+    gradient: 'from-blue-500 to-purple-500'
   },
   {
     icon: (
@@ -64,7 +65,7 @@ const services = [
       'Turnaround: 3-5 business days for general failures',
       'Guarantee: 90-day warranty after repair'
     ],
-    color: 'from-orange-500 to-red-500'
+    gradient: 'from-violet-500 to-purple-500'
   },
   {
     icon: (
@@ -80,7 +81,7 @@ const services = [
       'Content: Product selection/Usage guidance',
       'Feedback: Post-consultation satisfaction survey'
     ],
-    color: 'from-yellow-500 to-orange-500'
+    gradient: 'from-indigo-500 to-violet-500'
   },
   {
     icon: (
@@ -96,7 +97,7 @@ const services = [
       'Follow-up: Dedicated staff throughout',
       'Satisfaction: Follow-up survey after resolution'
     ],
-    color: 'from-pink-500 to-rose-500'
+    gradient: 'from-purple-500 to-pink-500'
   }
 ]
 
@@ -104,17 +105,23 @@ export default function AfterSales() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
   return (
-    <section id="after-sales" className="py-20 bg-black relative overflow-hidden">
+    <section id="after-sales" className="py-20 bg-[#0a0a0f] relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-3xl" />
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
-            <span className="text-white/80 text-sm">After-sales</span>
+        <ScrollAnimation className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-md border border-indigo-500/20 mb-6">
+            <span className="text-indigo-400 text-sm font-medium">After-sales</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             After-sales Service
@@ -122,105 +129,108 @@ export default function AfterSales() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             We are committed to providing professional, timely, and thoughtful after-sales service for every customer
           </p>
-        </div>
+        </ScrollAnimation>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="relative group cursor-pointer"
-              onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              {/* Glow effect */}
-              <div className={`absolute -inset-2 bg-gradient-to-r ${service.color} rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
+            <ScrollAnimation key={index} delay={200 + index * 100}>
+              <div
+                className="relative group cursor-pointer"
+                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Glow effect */}
+                <div className={`absolute -inset-2 bg-gradient-to-r ${service.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
 
-              {/* Card with 3D effect */}
-              <div className="relative bg-gray-900 rounded-xl p-6 border border-gray-800 group-hover:border-indigo-500/30 transition-all duration-500 h-full transform group-hover:-translate-y-2 group-hover:rotate-x-1">
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </div>
-
-                {/* Icon */}
-                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-indigo-500/20 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-indigo-500/30`}>
-                  {service.icon}
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-between">
-                  {service.title}
-                  <svg
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${expandedIndex === index ? 'rotate-180' : ''}`}
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                  {service.description}
-                </p>
-
-                {/* Details - Expandable */}
-                <div className={`overflow-hidden transition-all duration-500 ${expandedIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="pt-4 border-t border-gray-800">
-                    <ul className="space-y-3">
-                      {service.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-center gap-3 text-sm">
-                          <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color} flex-shrink-0`} />
-                          <span className="text-gray-300">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* Card with 3D effect */}
+                <div className="relative bg-[#111118] rounded-xl p-6 border border-indigo-500/10 group-hover:border-indigo-500/30 transition-all duration-500 h-full transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   </div>
-                </div>
 
-                {/* Bottom accent */}
-                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color} rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
+                  {/* Icon */}
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-indigo-500/20 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-indigo-500/30`}>
+                    {service.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-between">
+                    {service.title}
+                    <svg
+                      className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${expandedIndex === index ? 'rotate-180' : ''}`}
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+
+                  {/* Details - Expandable */}
+                  <div className={`overflow-hidden transition-all duration-500 ${expandedIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="pt-4 border-t border-indigo-500/10">
+                      <ul className="space-y-3">
+                        {service.details.map((detail, detailIndex) => (
+                          <li key={detailIndex} className="flex items-center gap-3 text-sm">
+                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient} flex-shrink-0`} />
+                            <span className="text-gray-300">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Bottom glow line */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${service.gradient} rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
+                </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
 
         {/* Contact Information */}
-        <div className="mt-20 relative">
-          {/* Glow effect */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-30" />
+        <ScrollAnimation delay={800}>
+          <div className="mt-20 relative">
+            {/* Glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur opacity-20" />
 
-          <div className="relative bg-gradient-to-r from-blue-900/80 to-purple-900/80 backdrop-blur-xl rounded-2xl p-8 sm:p-10 border border-white/10">
-            <div className="text-center">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Contact Us
-              </h3>
-              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                If you have any questions or need assistance, please don't hesitate to contact our customer service team
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {[
-                  { value: '400-XXX-XXXX', label: 'Hotline', icon: '📞' },
-                  { value: 'support@tfssd.com', label: 'Email', icon: '✉️' },
-                  { value: '24/7', label: 'Service Hours', icon: '🕐' }
-                ].map((contact, index) => (
-                  <div key={index} className="group text-center p-6 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300">
-                    <div className="text-4xl mb-3">{contact.icon}</div>
-                    <div className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
-                      {contact.value}
+            <div className="relative bg-gradient-to-r from-indigo-900/30 to-purple-900/30 backdrop-blur-xl rounded-2xl p-8 sm:p-10 border border-indigo-500/20">
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  Contact Us
+                </h3>
+                <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                  If you have any questions or need assistance, please don't hesitate to contact our customer service team
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {[
+                    { value: '400-XXX-XXXX', label: 'Hotline', icon: '📞' },
+                    { value: 'support@tfssd.com', label: 'Email', icon: '✉️' },
+                    { value: '24/7', label: 'Service Hours', icon: '🕐' }
+                  ].map((contact, index) => (
+                    <div key={index} className="group text-center p-6 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300 border border-indigo-500/10 hover:border-indigo-500/30">
+                      <div className="text-4xl mb-3">{contact.icon}</div>
+                      <div className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 transition-all duration-300">
+                        {contact.value}
+                      </div>
+                      <div className="text-gray-400 text-sm">{contact.label}</div>
                     </div>
-                    <div className="text-gray-400 text-sm">{contact.label}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   )

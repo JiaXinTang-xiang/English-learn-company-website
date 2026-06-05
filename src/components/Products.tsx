@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import product1Image from '../assets/image5.png'
 import product2Image from '../assets/image6.png'
+import ScrollAnimation from './ScrollAnimation'
 
 const products = [
   {
@@ -15,7 +16,7 @@ const products = [
       'Adaptive Parallel Capacity Pool Technology'
     ],
     description: 'Professional-grade TF SSD for high-performance storage needs',
-    gradient: 'from-blue-600 to-purple-600',
+    gradient: 'from-indigo-500 to-purple-500',
     popular: true
   },
   {
@@ -30,7 +31,7 @@ const products = [
       'Adaptive Parallel Capacity Pool Technology'
     ],
     description: 'Standard TF SSD, the best value for money',
-    gradient: 'from-purple-600 to-pink-600',
+    gradient: 'from-purple-500 to-pink-500',
     popular: false
   }
 ]
@@ -39,18 +40,23 @@ export default function Products() {
   const [activeProduct, setActiveProduct] = useState(0)
 
   return (
-    <section id="products" className="py-20 bg-black relative overflow-hidden">
+    <section id="products" className="py-20 bg-[#0a0a0f] relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl" />
         <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-3xl" />
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)',
+          backgroundSize: '60px 60px'
+        }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
-            <span className="text-white/80 text-sm">Products</span>
+        <ScrollAnimation className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-md border border-indigo-500/20 mb-6">
+            <span className="text-indigo-400 text-sm font-medium">Products</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Our Products
@@ -58,170 +64,156 @@ export default function Products() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             The world's first TF solid-state drive, born for the market, solving storage pain points
           </p>
-        </div>
+        </ScrollAnimation>
 
         {/* Product Tabs */}
-        <div className="flex justify-center gap-4 mb-12">
+        <ScrollAnimation delay={200} className="flex justify-center gap-4 mb-12">
           {products.map((product, index) => (
             <button
               key={index}
               onClick={() => setActiveProduct(index)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeProduct === index
-                  ? `bg-gradient-to-r ${product.gradient} text-white shadow-lg shadow-purple-500/25`
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  ? `bg-gradient-to-r ${product.gradient} text-white shadow-lg shadow-indigo-500/25`
+                  : 'bg-[#111118] text-gray-400 hover:text-white hover:bg-[#16161e] border border-indigo-500/10'
               }`}
             >
               {product.name}
             </button>
           ))}
-        </div>
+        </ScrollAnimation>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" style={{ perspective: '1000px' }}>
           {products.map((product, index) => (
-            <div
-              key={index}
-              className={`relative group transition-all duration-500 ${
-                activeProduct === index ? 'scale-100 opacity-100' : 'scale-95 opacity-70'
-              }`}
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              {/* Popular badge */}
-              {product.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                  <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg shadow-indigo-500/30">
-                    Recommended
+            <ScrollAnimation key={index} delay={400 + index * 200}>
+              <div
+                className={`relative group transition-all duration-500 ${
+                  activeProduct === index ? 'scale-100 opacity-100' : 'scale-95 opacity-70'
+                }`}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Popular badge */}
+                {product.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                    <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg shadow-indigo-500/30">
+                      Recommended
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Glow effect */}
-              <div className={`absolute -inset-2 bg-gradient-to-r ${product.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
+                {/* Glow effect */}
+                <div className={`absolute -inset-2 bg-gradient-to-r ${product.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
 
-              {/* Product Card with 3D effect */}
-              <div className="relative bg-[#111118] rounded-2xl overflow-hidden border border-indigo-500/10 group-hover:border-indigo-500/40 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden z-10 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </div>
-                {/* Product Image */}
-                <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+                {/* Product Card with 3D effect */}
+                <div className="relative bg-[#111118] rounded-2xl overflow-hidden border border-indigo-500/10 group-hover:border-indigo-500/40 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden z-10 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  </div>
 
-                  {/* Price badge */}
-                  <div className="absolute top-4 right-4">
-                    <div className={`bg-gradient-to-r ${product.gradient} text-white px-5 py-2 rounded-full font-bold text-lg shadow-lg`}>
-                      {product.price}
+                  {/* Product Image */}
+                  <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111118] via-transparent to-transparent" />
+
+                    {/* Price badge */}
+                    <div className="absolute top-4 right-4">
+                      <div className={`bg-gradient-to-r ${product.gradient} text-white px-5 py-2 rounded-full font-bold text-lg shadow-lg`}>
+                        {product.price}
+                      </div>
+                    </div>
+
+                    {/* Capacity badge */}
+                    <div className="absolute top-4 left-4">
+                      <div className="bg-[#0a0a0f]/70 backdrop-blur-md text-white px-4 py-2 rounded-full font-semibold border border-indigo-500/20">
+                        {product.capacity}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Capacity badge */}
-                  <div className="absolute top-4 left-4">
-                    <div className="bg-black/50 backdrop-blur-md text-white px-4 py-2 rounded-full font-semibold border border-white/20">
-                      {product.capacity}
+                  {/* Product Info */}
+                  <div className="p-6 sm:p-8">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                        {product.name}
+                      </h3>
+                      <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${product.gradient} animate-pulse`} />
                     </div>
+
+                    <p className="text-gray-400 mb-6">{product.description}</p>
+
+                    {/* Features List */}
+                    <ul className="space-y-3 mb-8">
+                      {product.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center gap-3 group/feature">
+                          <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${product.gradient} flex items-center justify-center flex-shrink-0`}>
+                            <svg className="w-3 h-3 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
+                              <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                          </div>
+                          <span className="text-gray-300 group-hover/feature:text-white transition-colors duration-200">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* CTA Button */}
+                    <button className={`w-full bg-gradient-to-r ${product.gradient} text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 transform hover:scale-105`}>
+                      Learn More
+                    </button>
                   </div>
-                </div>
-
-                {/* Product Info */}
-                <div className="p-6 sm:p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                      {product.name}
-                    </h3>
-                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${product.gradient} animate-pulse`} />
-                  </div>
-
-                  <p className="text-gray-300 mb-6">{product.description}</p>
-
-                  {/* Features List */}
-                  <ul className="space-y-3 mb-8">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-3 group/feature">
-                        <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${product.gradient} flex items-center justify-center flex-shrink-0`}>
-                          <svg className="w-3 h-3 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M5 13l4 4L19 7"></path>
-                          </svg>
-                        </div>
-                        <span className="text-gray-200 group-hover/feature:text-white transition-colors duration-200">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA Button */}
-                  <button className={`w-full bg-gradient-to-r ${product.gradient} text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105`}>
-                    Learn More
-                  </button>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
 
         {/* Video Section */}
-        <div className="mt-20 text-center">
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-            Product Demo Video
-          </h3>
-          <p className="text-gray-400 mb-8">Watch the video to learn more about our products</p>
+        <ScrollAnimation delay={800}>
+          <div className="mt-20 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              Product Demo Video
+            </h3>
+            <p className="text-gray-400 mb-8">Watch the video to learn more about our products</p>
 
-          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl relative group">
-            {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl relative group">
+              {/* Glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
 
-            <div className="relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
-              <video
-                controls
-                className="w-full h-auto"
-                poster={product1Image}
-                preload="metadata"
-                onError={(e) => {
-                  console.error('Video error:', e);
-                  const target = e.target as HTMLVideoElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.innerHTML = `
-                      <div class="flex flex-col items-center justify-center h-64 text-gray-400">
-                        <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                        </svg>
-                        <p>Video failed to load</p>
-                        <a href="${import.meta.env.BASE_URL}media1.mp4" target="_blank" class="mt-2 text-blue-400 hover:underline">Click to download video</a>
-                      </div>
-                    `;
-                  }
-                }}
+              <div className="relative bg-[#111118] rounded-2xl overflow-hidden border border-indigo-500/20">
+                <video
+                  controls
+                  className="w-full h-auto"
+                  poster={product1Image}
+                  preload="metadata"
+                >
+                  <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4" />
+                  Your browser does not support video playback
+                </video>
+              </div>
+            </div>
+
+            {/* Download link */}
+            <div className="mt-6">
+              <a
+                href={import.meta.env.BASE_URL + 'media1.mp4'}
+                download="TF-SSD-Demo.mp4"
+                className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-200"
               >
-                <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4; codecs=avc1.42E01E, mp4a.40.2" />
-                <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4" />
-                Your browser does not support video playback
-              </video>
+                <svg className="w-5 h-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Video
+              </a>
             </div>
           </div>
-
-          {/* Download link */}
-          <div className="mt-6">
-            <a
-              href={import.meta.env.BASE_URL + 'media1.mp4'}
-              download="TF-SSD-Demo.mp4"
-              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200"
-            >
-              <svg className="w-5 h-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download Video
-            </a>
-          </div>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   )

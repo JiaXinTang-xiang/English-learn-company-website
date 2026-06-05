@@ -1,4 +1,5 @@
 import teamImage from '../assets/team.png'
+import ScrollAnimation from './ScrollAnimation'
 
 const teamMembers = [
   {
@@ -61,7 +62,7 @@ export default function Team() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollAnimation className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-md border border-indigo-500/20 mb-6">
             <span className="text-indigo-400 text-sm font-medium">Our Team</span>
           </div>
@@ -74,64 +75,67 @@ export default function Team() {
             infused with the team's dedication. Our goal is simple — to make faster, more stable, and more affordable
             storage products available to everyone.
           </p>
-        </div>
+        </ScrollAnimation>
 
         {/* Team Photo */}
-        <div className="mb-16 rounded-2xl overflow-hidden shadow-2xl relative group border border-indigo-500/20">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/80 via-transparent to-transparent z-10" />
-          <img
-            src={teamImage}
-            alt="Team Photo"
-            className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute bottom-6 left-6 z-20">
-            <h3 className="text-white text-2xl font-bold mb-2">Core Team</h3>
-            <p className="text-indigo-300 text-sm">Innovation · Professional · Collaboration</p>
+        <ScrollAnimation delay={200}>
+          <div className="mb-16 rounded-2xl overflow-hidden shadow-2xl relative group border border-indigo-500/20">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/80 via-transparent to-transparent z-10" />
+            <img
+              src={teamImage}
+              alt="Team Photo"
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute bottom-6 left-6 z-20">
+              <h3 className="text-white text-2xl font-bold mb-2">Core Team</h3>
+              <p className="text-indigo-300 text-sm">Innovation · Professional · Collaboration</p>
+            </div>
           </div>
-        </div>
+        </ScrollAnimation>
 
         {/* Team Members Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" style={{ perspective: '1000px' }}>
           {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="relative group"
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              {/* Glow effect */}
-              <div className={`absolute -inset-2 bg-gradient-to-r ${member.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500`} />
+            <ScrollAnimation key={index} delay={300 + index * 100}>
+              <div
+                className="relative group"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Glow effect */}
+                <div className={`absolute -inset-2 bg-gradient-to-r ${member.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500`} />
 
-              {/* Card with 3D effect */}
-              <div className="relative bg-[#111118] rounded-xl p-6 transition-all duration-500 border border-indigo-500/10 group-hover:border-indigo-500/40 transform group-hover:-translate-y-2 group-hover:rotate-x-2 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
-                {/* Shimmer effect on hover */}
-                <div className="absolute inset-0 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </div>
-
-                {/* Avatar */}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${member.gradient} rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-indigo-500/40`}>
-                    <span className="text-white font-bold text-xl">
-                      {member.name.charAt(0)}
-                    </span>
+                {/* Card with 3D effect */}
+                <div className="relative bg-[#111118] rounded-xl p-6 transition-all duration-500 border border-indigo-500/10 group-hover:border-indigo-500/40 transform group-hover:-translate-y-2 group-hover:rotate-x-2 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Shimmer effect on hover */}
+                  <div className="absolute inset-0 rounded-xl overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-semibold text-lg transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
-                    <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
-                      {member.role}
-                    </p>
+
+                  {/* Avatar */}
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${member.gradient} rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-indigo-500/40`}>
+                      <span className="text-white font-bold text-xl">
+                        {member.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="text-white font-semibold text-lg transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
+                      <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                        {member.role}
+                      </p>
+                    </div>
                   </div>
+
+                  {/* Description */}
+                  <p className="text-gray-400 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-300">
+                    {member.description}
+                  </p>
+
+                  {/* Bottom glow line */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${member.gradient} rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
                 </div>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-300">
-                  {member.description}
-                </p>
-
-                {/* Bottom glow line */}
-                <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${member.gradient} rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>
