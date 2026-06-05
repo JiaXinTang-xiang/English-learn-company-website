@@ -5,43 +5,43 @@ const teamMembers = [
   {
     name: '陈俊宇',
     role: '产品经理',
-    description: '负责TF固态硬盘产品规划与市场策略',
+    description: 'TF固态硬盘产品规划与市场策略',
     color: 'from-blue-500 to-cyan-500'
   },
   {
-    name: '刘俊军',
+    name: '李梓嘉',
     role: '技术总监',
-    description: '负责产品研发与技术创新',
+    description: '产品研发与技术创新',
     color: 'from-purple-500 to-pink-500'
   },
   {
-    name: '李梓嘉',
+    name: '刘俊军',
     role: '项目总监',
-    description: '负责项目统筹与执行管理',
+    description: '项目统筹与执行管理',
     color: 'from-orange-500 to-red-500'
   },
   {
     name: '余万民',
     role: '设计师',
-    description: '负责产品设计与视觉呈现',
+    description: '产品设计与视觉呈现',
     color: 'from-green-500 to-teal-500'
   },
   {
     name: '蒙俊荣',
     role: '媒体专员',
-    description: '负责产品拍摄与内容制作',
+    description: '产品拍摄与内容制作',
     color: 'from-yellow-500 to-orange-500'
   },
   {
     name: '谢泳宁',
     role: '后期制作',
-    description: '负责视频剪辑与后期处理',
+    description: '视频剪辑与后期处理',
     color: 'from-pink-500 to-rose-500'
   },
   {
     name: '陈星宇',
     role: '内容编辑',
-    description: '负责文案编辑与内容策划',
+    description: '文案编辑与内容策划',
     color: 'from-indigo-500 to-blue-500'
   }
 ]
@@ -67,7 +67,7 @@ export default function Team() {
             我们的团队
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-            我们是一群状的追梦者，坚信存储技术可以更加普惠。从第一行代码到第一块芯片，从第一次调试到第一次成功，每一步都凝聚着团队的心血。我们的目标很简单——让每个人都能用上更快、更稳、更实惠的存储产品。
+            我们是一群追梦者，坚信存储技术可以更加普惠。从第一行代码到第一块芯片，从第一次调试到第一次成功，每一步都凝聚着团队的心血。我们的目标很简单——让每个人都能用上更快、更稳、更实惠的存储产品。
           </p>
         </div>
 

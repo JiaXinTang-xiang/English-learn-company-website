@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const newsItems = [
+const allNewsItems = [
   {
     id: 1,
     title: '全球首款TF固态硬盘正式发布',
@@ -30,11 +30,34 @@ const newsItems = [
     content: '近日，我司与多家国内外知名企业签署了战略合作协议。合作方涵盖了智能手机制造商、数据中心运营商、物联网设备厂商等多个领域。通过这些战略合作，TF固态硬盘将在更广泛的应用场景中得到推广，为更多用户提供高效、可靠的存储解决方案。',
     color: 'from-orange-500 to-red-500',
     icon: '🤝'
+  },
+  {
+    id: 4,
+    title: '新一代TF SSD Pro研发取得重大突破',
+    date: '2025年4月8日',
+    category: '研发动态',
+    summary: '研发团队成功攻克多项技术难题，新一代TF SSD Pro读取速度提升至720MB/s，性能再创新高。',
+    content: '经过三个月的攻关，我司研发团队在新一代TF SSD Pro的开发上取得重大突破。新产品采用最新的控制器芯片和3D NAND闪存技术，读取速度从原来的520MB/s提升至720MB/s，写入速度也达到了650MB/s。此外，新产品还加入了智能温控算法，有效降低了长时间使用时的温度，进一步提升了产品的稳定性和寿命。',
+    color: 'from-green-500 to-teal-500',
+    icon: '🔬'
+  },
+  {
+    id: 5,
+    title: '受邀参加2025全球存储技术大会',
+    date: '2025年5月15日',
+    category: '行业活动',
+    summary: '我司受邀参加2025全球存储技术大会，将在会上发表主题演讲，分享TF固态硬盘的创新理念。',
+    content: '我司收到2025全球存储技术大会组委会的邀请，将于下月在深圳参加此次盛会。届时，我司技术总监将在主论坛发表题为"开放式架构：存储行业的未来"的主题演讲，向全球同行分享TF固态硬盘的创新理念和技术突破。这是对我司技术实力的又一认可，也是向世界展示中国存储企业创新能力的重要机会。',
+    color: 'from-yellow-500 to-orange-500',
+    icon: '🎤'
   }
 ]
 
 export default function News() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
+  const [showAll, setShowAll] = useState(false)
+
+  const displayedNews = showAll ? allNewsItems : allNewsItems.slice(0, 3)
 
   return (
     <section id="news" className="py-20 bg-gray-900 relative overflow-hidden">
@@ -60,10 +83,13 @@ export default function News() {
 
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsItems.map((news) => (
+          {displayedNews.map((news, index) => (
             <article
               key={news.id}
               className="relative group"
+              style={{
+                animation: showAll && index >= 3 ? `fadeInUp 0.5s ease-out ${(index - 3) * 0.1}s both` : undefined
+              }}
             >
               {/* Glow effect */}
               <div className={`absolute -inset-1 bg-gradient-to-r ${news.color} rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
@@ -119,12 +145,35 @@ export default function News() {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12">
-          <button className="group relative px-8 py-4 bg-white text-black rounded-full font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/10">
-            <span className="relative z-10">查看全部新闻</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
-        </div>
+        {allNewsItems.length > 3 && (
+          <div className="text-center mt-12">
+            <button
+              onClick={() => {
+                setShowAll(!showAll)
+                if (showAll) {
+                  setExpandedId(null)
+                }
+              }}
+              className="group relative px-8 py-4 bg-white text-black rounded-full font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/10"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                {showAll ? '收起新闻' : '查看全部新闻'}
+                <svg
+                  className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )

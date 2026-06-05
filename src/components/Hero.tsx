@@ -139,18 +139,20 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats */}
+        {/* Company Info Cards */}
         <div
-          className={`mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto transition-all duration-1000 delay-1200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           {[
-            { value: '50%', label: '性能提升' },
-            { value: '3年', label: '质保服务' },
-            { value: '24/7', label: '技术支持' }
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+            { icon: '📍', title: '桂林', subtitle: '公司总部' },
+            { icon: '👥', title: '50+', subtitle: '团队成员' },
+            { icon: '📅', title: '2024', subtitle: '创立至今' },
+            { icon: '💼', title: '存储', subtitle: '核心业务' }
+          ].map((item, index) => (
+            <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300">
+              <div className="text-2xl mb-2">{item.icon}</div>
+              <div className="text-white font-bold text-lg">{item.title}</div>
+              <div className="text-gray-400 text-xs">{item.subtitle}</div>
             </div>
           ))}
         </div>
