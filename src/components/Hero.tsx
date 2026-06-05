@@ -2,6 +2,30 @@ import { useState, useEffect } from 'react'
 import heroImage from '../assets/image2.png'
 import Particles from './Particles'
 
+function TypewriterEffect({ text, delay = 100, className = '' }: { text: string; delay?: number; className?: string }) {
+  const [displayText, setDisplayText] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      }, delay)
+      return () => clearTimeout(timeout)
+    }
+  }, [currentIndex, text, delay])
+
+  return (
+    <span className={className}>
+      {displayText}
+      {currentIndex < text.length && (
+        <span className="animate-pulse">|</span>
+      )}
+    </span>
+  )
+}
+
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isLoaded, setIsLoaded] = useState(false)
@@ -89,17 +113,16 @@ export default function Hero() {
           <span className="text-white/80 text-sm">World's First · Revolutionary Technology</span>
         </div>
 
-        {/* Main Title */}
+        {/* Main Title with Typewriter Effect */}
         <h1
           className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-6 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-100 to-gray-300 drop-shadow-2xl">
-            TF Solid
-          </span>
-          <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient">
-            State Drive
-          </span>
+          <div className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-100 to-gray-300 drop-shadow-2xl">
+            <TypewriterEffect text="TF Solid" delay={150} />
+          </div>
+          <div className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            <TypewriterEffect text="State Drive" delay={150} />
+          </div>
         </h1>
 
         {/* Subtitle */}
