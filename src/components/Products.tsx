@@ -9,12 +9,12 @@ const products = [
     price: '¥299',
     capacity: '128GB',
     features: [
-      '读取速度：520MB/s',
-      '写入速度：480MB/s',
-      '开放式颗粒插拔架构',
-      '自适应并行容量池技术'
+      'Read Speed: 520MB/s',
+      'Write Speed: 480MB/s',
+      'Open Particle Plug-in Architecture',
+      'Adaptive Parallel Capacity Pool Technology'
     ],
-    description: '专业级TF固态硬盘，适用于高性能存储需求',
+    description: 'Professional-grade TF SSD for high-performance storage needs',
     gradient: 'from-blue-600 to-purple-600',
     popular: true
   },
@@ -24,12 +24,12 @@ const products = [
     price: '¥199',
     capacity: '64GB',
     features: [
-      '读取速度：450MB/s',
-      '写入速度：400MB/s',
-      '开放式颗粒插拔架构',
-      '自适应并行容量池技术'
+      'Read Speed: 450MB/s',
+      'Write Speed: 400MB/s',
+      'Open Particle Plug-in Architecture',
+      'Adaptive Parallel Capacity Pool Technology'
     ],
-    description: '标准级TF固态硬盘，性价比之选',
+    description: 'Standard TF SSD, the best value for money',
     gradient: 'from-purple-600 to-pink-600',
     popular: false
   }
@@ -53,10 +53,10 @@ export default function Products() {
             <span className="text-white/80 text-sm">Products</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            产品介绍
+            Our Products
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            全球首款TF固态硬盘，为市场而生，只为解决存储痛点
+            The world's first TF solid-state drive, born for the market, solving storage pain points
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function Products() {
               {product.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
                   <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                    推荐
+                    Recommended
                   </div>
                 </div>
               )}
@@ -153,7 +153,7 @@ export default function Products() {
 
                   {/* CTA Button */}
                   <button className={`w-full bg-gradient-to-r ${product.gradient} text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105`}>
-                    了解更多
+                    Learn More
                   </button>
                 </div>
               </div>
@@ -164,9 +164,9 @@ export default function Products() {
         {/* Video Section */}
         <div className="mt-20 text-center">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-            产品演示视频
+            Product Demo Video
           </h3>
-          <p className="text-gray-400 mb-8">观看视频了解产品详情</p>
+          <p className="text-gray-400 mb-8">Watch the video to learn more about our products</p>
 
           <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl relative group">
             {/* Glow effect */}
@@ -189,8 +189,8 @@ export default function Products() {
                         <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                         </svg>
-                        <p>视频加载失败</p>
-                        <a href="${import.meta.env.BASE_URL}media1.mp4" target="_blank" class="mt-2 text-blue-400 hover:underline">点击下载视频</a>
+                        <p>Video failed to load</p>
+                        <a href="${import.meta.env.BASE_URL}media1.mp4" target="_blank" class="mt-2 text-blue-400 hover:underline">Click to download video</a>
                       </div>
                     `;
                   }
@@ -198,7 +198,7 @@ export default function Products() {
               >
                 <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4; codecs=avc1.42E01E, mp4a.40.2" />
                 <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4" />
-                您的浏览器不支持视频播放
+                Your browser does not support video playback
               </video>
             </div>
           </div>
@@ -213,7 +213,7 @@ export default function Products() {
               <svg className="w-5 h-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              下载视频
+              Download Video
             </a>
           </div>
         </div>

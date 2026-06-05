@@ -18,8 +18,8 @@ export default function Footer() {
               <h3 className="text-white font-bold text-2xl">TF SSD</h3>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              全球首款TF固态硬盘，采用开放式颗粒插拔架构和自适应并行容量池技术，
-              为市场而生，只为解决存储痛点。
+              The world's first TF solid-state drive, featuring Open Particle Plug-in Architecture
+              and Adaptive Parallel Capacity Pool Technology. Born for the market, solving storage pain points.
             </p>
 
             {/* Social Links */}
@@ -65,15 +65,15 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
               <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
-              快速链接
+              Quick Links
             </h4>
             <ul className="space-y-3">
               {[
-                { name: '首页', href: '#home' },
-                { name: '团队', href: '#team' },
-                { name: '产品', href: '#products' },
-                { name: '新闻', href: '#news' },
-                { name: '售后', href: '#after-sales' }
+                { name: 'Home', href: '#home' },
+                { name: 'Team', href: '#team' },
+                { name: 'Products', href: '#products' },
+                { name: 'News', href: '#news' },
+                { name: 'After-sales', href: '#after-sales' }
               ].map((link, index) => (
                 <li key={index}>
                   <a
@@ -92,7 +92,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
               <div className="w-1 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full" />
-              联系我们
+              Contact Us
             </h4>
             <ul className="space-y-4 text-gray-400">
               {[
@@ -119,7 +119,7 @@ export default function Footer() {
                       <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
                   ),
-                  text: '中国·深圳'
+                  text: 'Guilin, China'
                 }
               ].map((contact, index) => (
                 <li key={index} className="flex items-center gap-3 group">
@@ -137,10 +137,10 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © 2024 TF SSD. 保留所有权利。
+              © 2024 TF SSD. All rights reserved.
             </p>
             <div className="flex gap-6">
-              {['隐私政策', '服务条款', '使用条款'].map((link, index) => (
+              {['Privacy Policy', 'Terms of Service', 'Usage Terms'].map((link, index) => (
                 <a key={index} href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-200">
                   {link}
                 </a>

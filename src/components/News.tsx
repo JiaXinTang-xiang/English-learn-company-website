@@ -3,51 +3,51 @@ import { useState } from 'react'
 const allNewsItems = [
   {
     id: 1,
-    title: '全球首款TF固态硬盘正式发布',
-    date: '2024年12月15日',
-    category: '新品发布',
-    summary: '我司成功研发并发布全球首款TF固态硬盘，采用开放式颗粒插拔架构和自适应并行容量池技术，为存储行业带来革命性突破。',
-    content: '在存储技术不断发展的今天，我司正式发布了全球首款TF固态硬盘。这款产品采用了创新的开放式颗粒插拔架构，用户可以根据需求自由更换存储颗粒，大大提升了产品的灵活性和可扩展性。同时，自适应并行容量池技术使得存储效率提升了50%以上，为用户带来前所未有的存储体验。',
+    title: 'World\'s First TF SSD Officially Released',
+    date: 'December 15, 2024',
+    category: 'Product Launch',
+    summary: 'We have successfully developed and released the world\'s first TF solid-state drive, featuring Open Particle Plug-in Architecture and Adaptive Parallel Capacity Pool Technology, bringing revolutionary breakthroughs to the storage industry.',
+    content: 'In the era of rapidly evolving storage technology, we have officially released the world\'s first TF solid-state drive. This product features an innovative Open Particle Plug-in Architecture, allowing users to freely replace storage particles based on their needs, greatly enhancing product flexibility and scalability. Meanwhile, the Adaptive Parallel Capacity Pool Technology has improved storage efficiency by over 50%, delivering an unprecedented storage experience for users.',
     color: 'from-blue-500 to-cyan-500',
     icon: '🚀'
   },
   {
     id: 2,
-    title: 'TF固态硬盘荣获年度创新技术奖',
-    date: '2025年1月20日',
-    category: '品牌荣誉',
-    summary: '在2025年国际存储技术峰会上，我司TF固态硬盘凭借其创新的技术架构和卓越的性能表现，荣获"年度创新技术奖"。',
-    content: '在刚刚结束的2025年国际存储技术峰会上，我司的TF固态硬盘产品凭借其独特的开放式颗粒插拔架构和自适应并行容量池技术，从众多参赛产品中脱颖而出，荣获"年度创新技术奖"。这一荣誉不仅是对我司技术实力的认可，更是对整个团队创新精神的肯定。',
+    title: 'TF SSD Wins Annual Innovation Technology Award',
+    date: 'January 20, 2025',
+    category: 'Brand Honor',
+    summary: 'At the 2025 International Storage Technology Summit, our TF SSD won the "Annual Innovation Technology Award" for its innovative technical architecture and excellent performance.',
+    content: 'At the recently concluded 2025 International Storage Technology Summit, our TF SSD product stood out among numerous competitors with its unique Open Particle Plug-in Architecture and Adaptive Parallel Capacity Pool Technology, winning the "Annual Innovation Technology Award". This honor is not only a recognition of our technical strength but also an affirmation of the entire team\'s innovative spirit.',
     color: 'from-purple-500 to-pink-500',
     icon: '🏆'
   },
   {
     id: 3,
-    title: '与多家知名企业达成战略合作',
-    date: '2025年3月10日',
-    category: '市场合作',
-    summary: '我司与多家国内外知名企业签署战略合作协议，共同推动TF固态硬盘在各领域的应用与发展。',
-    content: '近日，我司与多家国内外知名企业签署了战略合作协议。合作方涵盖了智能手机制造商、数据中心运营商、物联网设备厂商等多个领域。通过这些战略合作，TF固态硬盘将在更广泛的应用场景中得到推广，为更多用户提供高效、可靠的存储解决方案。',
+    title: 'Strategic Partnerships with Leading Enterprises',
+    date: 'March 10, 2025',
+    category: 'Market Cooperation',
+    summary: 'We have signed strategic cooperation agreements with multiple domestic and international enterprises to jointly promote the application and development of TF SSD across various fields.',
+    content: 'Recently, we have signed strategic cooperation agreements with several domestic and international enterprises. Our partners include smartphone manufacturers, data center operators, IoT device manufacturers, and more. Through these strategic partnerships, TF SSD will be promoted in a wider range of application scenarios, providing efficient and reliable storage solutions for more users.',
     color: 'from-orange-500 to-red-500',
     icon: '🤝'
   },
   {
     id: 4,
-    title: '新一代TF SSD Pro研发取得重大突破',
-    date: '2025年4月8日',
-    category: '研发动态',
-    summary: '研发团队成功攻克多项技术难题，新一代TF SSD Pro读取速度提升至720MB/s，性能再创新高。',
-    content: '经过三个月的攻关，我司研发团队在新一代TF SSD Pro的开发上取得重大突破。新产品采用最新的控制器芯片和3D NAND闪存技术，读取速度从原来的520MB/s提升至720MB/s，写入速度也达到了650MB/s。此外，新产品还加入了智能温控算法，有效降低了长时间使用时的温度，进一步提升了产品的稳定性和寿命。',
+    title: 'Major Breakthrough in Next-Gen TF SSD Pro Development',
+    date: 'April 8, 2025',
+    category: 'R&D Update',
+    summary: 'The R&D team has successfully overcome multiple technical challenges, with the next-generation TF SSD Pro achieving read speeds of 720MB/s, setting a new performance record.',
+    content: 'After three months of dedicated effort, our R&D team has achieved a major breakthrough in the development of the next-generation TF SSD Pro. The new product utilizes the latest controller chips and 3D NAND flash technology, with read speeds increasing from 520MB/s to 720MB/s and write speeds reaching 650MB/s. Additionally, the new product incorporates intelligent thermal control algorithms, effectively reducing temperatures during extended use and further improving product stability and lifespan.',
     color: 'from-green-500 to-teal-500',
     icon: '🔬'
   },
   {
     id: 5,
-    title: '受邀参加2025全球存储技术大会',
-    date: '2025年5月15日',
-    category: '行业活动',
-    summary: '我司受邀参加2025全球存储技术大会，将在会上发表主题演讲，分享TF固态硬盘的创新理念。',
-    content: '我司收到2025全球存储技术大会组委会的邀请，将于下月在深圳参加此次盛会。届时，我司技术总监将在主论坛发表题为"开放式架构：存储行业的未来"的主题演讲，向全球同行分享TF固态硬盘的创新理念和技术突破。这是对我司技术实力的又一认可，也是向世界展示中国存储企业创新能力的重要机会。',
+    title: 'Invited to Attend 2025 Global Storage Technology Conference',
+    date: 'May 15, 2025',
+    category: 'Industry Event',
+    summary: 'We have been invited to attend the 2025 Global Storage Technology Conference, where we will deliver a keynote speech sharing the innovative philosophy behind TF SSD.',
+    content: 'We have received an invitation from the 2025 Global Storage Technology Conference Organizing Committee to attend this grand event in Shenzhen next month. Our Technical Director will deliver a keynote speech titled "Open Architecture: The Future of Storage Industry" at the main forum, sharing the innovative philosophy and technological breakthroughs of TF SSD with global peers. This is another recognition of our technical strength and an important opportunity to showcase the innovation capabilities of Chinese storage enterprises to the world.',
     color: 'from-yellow-500 to-orange-500',
     icon: '🎤'
   }
@@ -74,10 +74,10 @@ export default function News() {
             <span className="text-white/80 text-sm">News</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            企业新闻
+            Company News
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            了解我们的最新动态与发展历程
+            Stay updated with our latest developments and milestones
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default function News() {
                     onClick={() => setExpandedId(expandedId === news.id ? null : news.id)}
                     className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${news.color} bg-clip-text text-transparent hover:gap-3 transition-all duration-200`}
                   >
-                    {expandedId === news.id ? '收起' : '阅读全文'}
+                    {expandedId === news.id ? 'Collapse' : 'Read More'}
                     <svg
                       className={`w-4 h-4 transition-transform duration-200 ${expandedId === news.id ? 'rotate-90' : ''}`}
                       fill="none"
@@ -157,7 +157,7 @@ export default function News() {
               className="group relative px-8 py-4 bg-white text-black rounded-full font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/10"
             >
               <span className="relative z-10 flex items-center gap-2">
-                {showAll ? '收起新闻' : '查看全部新闻'}
+                {showAll ? 'Show Less' : 'View All News'}
                 <svg
                   className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
                   fill="none"

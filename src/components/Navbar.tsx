@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 const navItems = [
-  { name: '首页', href: '#home' },
-  { name: '团队', href: '#team' },
-  { name: '产品', href: '#products' },
-  { name: '新闻', href: '#news' },
-  { name: '售后', href: '#after-sales' },
+  { name: 'Home', href: '#home' },
+  { name: 'Team', href: '#team' },
+  { name: 'Products', href: '#products' },
+  { name: 'News', href: '#news' },
+  { name: 'After-sales', href: '#after-sales' },
 ]
 
 export default function Navbar() {

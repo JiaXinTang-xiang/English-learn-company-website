@@ -86,7 +86,7 @@ export default function Hero() {
           className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-white/80 text-sm">全球首款 · 革命性技术</span>
+          <span className="text-white/80 text-sm">World's First · Revolutionary Technology</span>
         </div>
 
         {/* Main Title */}
@@ -106,17 +106,17 @@ export default function Hero() {
         <p
           className={`text-xl sm:text-2xl md:text-3xl text-gray-200 mb-4 font-light transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          全球首款TF固态硬盘
+          The World's First TF Solid State Drive
         </p>
 
         {/* Description */}
         <p
           className={`text-base sm:text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          采用<span className="text-purple-400 font-semibold">开放式颗粒插拔架构</span>与
-          <span className="text-blue-400 font-semibold">自适应并行容量池技术</span>
+          Featuring <span className="text-purple-400 font-semibold">Open Particle Plug-in Architecture</span> and
+          <span className="text-blue-400 font-semibold"> Adaptive Parallel Capacity Pool Technology</span>
           <br />
-          为市场而生，只为解决存储痛点
+          Born for the market, solving storage pain points
         </p>
 
         {/* CTA Buttons */}
@@ -127,14 +127,14 @@ export default function Hero() {
             href="#products"
             className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
           >
-            <span className="relative z-10">了解更多</span>
+            <span className="relative z-10">Learn More</span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           <a
             href="#team"
             className="group relative px-8 py-4 border-2 border-white/30 rounded-full font-semibold text-white backdrop-blur-sm overflow-hidden transition-all duration-300 hover:scale-105 hover:border-white/60 hover:shadow-2xl hover:shadow-white/10"
           >
-            <span className="relative z-10">团队介绍</span>
+            <span className="relative z-10">Our Team</span>
             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
         </div>
@@ -144,10 +144,10 @@ export default function Hero() {
           className={`mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           {[
-            { icon: '📍', title: '桂林', subtitle: '公司总部' },
-            { icon: '👥', title: '50+', subtitle: '团队成员' },
-            { icon: '📅', title: '2024', subtitle: '创立至今' },
-            { icon: '💼', title: '存储', subtitle: '核心业务' }
+            { icon: '📍', title: 'Guilin', subtitle: 'Headquarters' },
+            { icon: '👥', title: '50+', subtitle: 'Team Members' },
+            { icon: '📅', title: '2022', subtitle: 'Founded' },
+            { icon: '💼', title: 'Storage', subtitle: 'Core Business' }
           ].map((item, index) => (
             <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300">
               <div className="text-2xl mb-2">{item.icon}</div>
