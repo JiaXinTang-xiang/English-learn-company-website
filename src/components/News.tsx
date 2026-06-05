@@ -82,20 +82,25 @@ export default function News() {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
           {displayedNews.map((news, index) => (
             <article
               key={news.id}
               className="relative group"
               style={{
-                animation: showAll && index >= 3 ? `fadeInUp 0.5s ease-out ${(index - 3) * 0.1}s both` : undefined
+                animation: showAll && index >= 3 ? `fadeInUp 0.5s ease-out ${(index - 3) * 0.1}s both` : undefined,
+                transformStyle: 'preserve-3d'
               }}
             >
               {/* Glow effect */}
-              <div className={`absolute -inset-1 bg-gradient-to-r ${news.color} rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+              <div className={`absolute -inset-2 bg-gradient-to-r ${news.color} rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
 
-              {/* Card */}
-              <div className="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-700/50 hover:border-transparent transition-all duration-300 h-full flex flex-col">
+              {/* Card with 3D effect */}
+              <div className="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-700/50 group-hover:border-indigo-500/30 transition-all duration-500 h-full flex flex-col transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
                 {/* Header with gradient */}
                 <div className={`h-2 bg-gradient-to-r ${news.color}`} />
 

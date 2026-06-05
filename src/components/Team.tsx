@@ -91,26 +91,32 @@ export default function Team() {
         </div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" style={{ perspective: '1000px' }}>
           {teamMembers.map((member, index) => (
             <div
               key={index}
               className="relative group"
+              style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Glow effect */}
-              <div className={`absolute -inset-1 bg-gradient-to-r ${member.gradient} rounded-xl blur opacity-0 group-hover:opacity-40 transition-opacity duration-500`} />
+              <div className={`absolute -inset-2 bg-gradient-to-r ${member.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500`} />
 
-              {/* Card */}
-              <div className="relative bg-[#111118] rounded-xl p-6 hover:bg-[#16161e] transition-all duration-300 border border-indigo-500/10 hover:border-indigo-500/30">
+              {/* Card with 3D effect */}
+              <div className="relative bg-[#111118] rounded-xl p-6 transition-all duration-500 border border-indigo-500/10 group-hover:border-indigo-500/40 transform group-hover:-translate-y-2 group-hover:rotate-x-2 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
+
                 {/* Avatar */}
                 <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${member.gradient} rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                  <div className={`w-14 h-14 bg-gradient-to-br ${member.gradient} rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-indigo-500/40`}>
                     <span className="text-white font-bold text-xl">
                       {member.name.charAt(0)}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold text-lg">{member.name}</h3>
+                    <h3 className="text-white font-semibold text-lg transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
                     <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
                       {member.role}
                     </p>
@@ -118,11 +124,11 @@ export default function Team() {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-400 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-300">
                   {member.description}
                 </p>
 
-                {/* Hover indicator */}
+                {/* Bottom glow line */}
                 <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${member.gradient} rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
               </div>
             </div>

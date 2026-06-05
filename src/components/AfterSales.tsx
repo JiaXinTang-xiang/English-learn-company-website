@@ -125,20 +125,26 @@ export default function AfterSales() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
           {services.map((service, index) => (
             <div
               key={index}
               className="relative group cursor-pointer"
               onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Glow effect */}
-              <div className={`absolute -inset-1 bg-gradient-to-r ${service.color} rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+              <div className={`absolute -inset-2 bg-gradient-to-r ${service.color} rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
 
-              {/* Card */}
-              <div className="relative bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 h-full">
+              {/* Card with 3D effect */}
+              <div className="relative bg-gray-900 rounded-xl p-6 border border-gray-800 group-hover:border-indigo-500/30 transition-all duration-500 h-full transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
+
                 {/* Icon */}
-                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-indigo-500/20 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-indigo-500/30`}>
                   {service.icon}
                 </div>
 

@@ -78,28 +78,33 @@ export default function Products() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" style={{ perspective: '1000px' }}>
           {products.map((product, index) => (
             <div
               key={index}
               className={`relative group transition-all duration-500 ${
                 activeProduct === index ? 'scale-100 opacity-100' : 'scale-95 opacity-70'
               }`}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Popular badge */}
               {product.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                  <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                  <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg shadow-indigo-500/30">
                     Recommended
                   </div>
                 </div>
               )}
 
               {/* Glow effect */}
-              <div className={`absolute -inset-1 bg-gradient-to-r ${product.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+              <div className={`absolute -inset-2 bg-gradient-to-r ${product.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
 
-              {/* Product Card */}
-              <div className="relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-colors duration-300">
+              {/* Product Card with 3D effect */}
+              <div className="relative bg-[#111118] rounded-2xl overflow-hidden border border-indigo-500/10 group-hover:border-indigo-500/40 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden z-10 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
                 {/* Product Image */}
                 <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
                   <img
