@@ -15,10 +15,24 @@ html {
 }
 
 body {
-  background: #000000;
-  color: #E1E0CC;
+  background: #0a0a0f;
+  color: #e2e8f0;
   margin: 0;
   padding: 0;
+}
+
+/* 科技风配色变量 */
+:root {
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --accent: #a855f7;
+  --accent-light: #c084fc;
+  --neon-blue: #3b82f6;
+  --neon-purple: #8b5cf6;
+  --neon-pink: #ec4899;
+  --dark-bg: #0a0a0f;
+  --dark-card: #111118;
+  --dark-border: #1e1e2e;
 }
 
 /* Noise overlay for hero video */
@@ -40,7 +54,7 @@ body {
 }
 
 ::selection {
-  background: rgba(222, 219, 200, 0.3);
+  background: rgba(99, 102, 241, 0.4);
   color: #fff;
 }
 
@@ -158,20 +172,20 @@ body {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #0a0a0f;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: linear-gradient(180deg, #818cf8, #a78bfa);
 }
 
 /* Smooth section transitions */
