@@ -180,37 +180,39 @@ export default function Products() {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
               Product Demo Video
             </h3>
-            <p className="text-gray-400 mb-8">Watch the video to learn more about our products</p>
+            <p className="text-gray-400 mb-8">Click the button below to watch the demo video</p>
 
-            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl relative group">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+            {/* Video Preview Card */}
+            <div className="max-w-4xl mx-auto">
+              <div className="relative bg-[#111118] rounded-2xl overflow-hidden border border-indigo-500/20 p-8">
+                <div className="flex flex-col items-center gap-6">
+                  {/* Play Icon */}
+                  <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                    <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
 
-              <div className="relative bg-[#111118] rounded-2xl overflow-hidden border border-indigo-500/20">
-                <video
-                  controls
-                  className="w-full h-auto"
-                  poster={product1Image}
-                  preload="metadata"
-                >
-                  <source src={import.meta.env.BASE_URL + 'media1.mp4'} type="video/mp4" />
-                  Your browser does not support video playback
-                </video>
+                  <div>
+                    <h4 className="text-white text-xl font-bold mb-2">TF SSD Product Demo</h4>
+                    <p className="text-gray-400">Duration: 2:30 | Format: MP4</p>
+                  </div>
+
+                  {/* Download Button */}
+                  <a
+                    href={import.meta.env.BASE_URL + 'media1.mp4'}
+                    download="TF-SSD-Demo.mp4"
+                    className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <svg className="w-5 h-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Video
+                  </a>
+
+                  <p className="text-gray-500 text-sm">Click to download and watch the video locally</p>
+                </div>
               </div>
-            </div>
-
-            {/* Download link */}
-            <div className="mt-6">
-              <a
-                href={import.meta.env.BASE_URL + 'media1.mp4'}
-                download="TF-SSD-Demo.mp4"
-                className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-200"
-              >
-                <svg className="w-5 h-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Download Video
-              </a>
             </div>
           </div>
         </ScrollAnimation>

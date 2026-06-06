@@ -56,7 +56,7 @@ export default function ScrollAnimation({ children, className = '', delay = 0, d
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translate(0)' : getTransform(),
-        transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`
+        transition: `opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`
       }}
     >
       {children}
