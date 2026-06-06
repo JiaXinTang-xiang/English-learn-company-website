@@ -164,7 +164,12 @@ export default function Products() {
                     </ul>
 
                     {/* CTA Button */}
-                    <button className={`w-full bg-gradient-to-r ${product.gradient} text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 transform hover:scale-105`}>
+                    <button
+                      onClick={() => {
+                        document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth' })
+                      }}
+                      className={`w-full bg-gradient-to-r ${product.gradient} text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 transform hover:scale-105`}
+                    >
                       Learn More
                     </button>
                   </div>
@@ -176,7 +181,7 @@ export default function Products() {
 
         {/* Video Section */}
         <ScrollAnimation delay={800}>
-          <div className="mt-20 text-center">
+          <div id="video-section" className="mt-20 text-center">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
               Product Demo Video
             </h3>
