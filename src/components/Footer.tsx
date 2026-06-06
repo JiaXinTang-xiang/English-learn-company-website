@@ -15,7 +15,10 @@ export default function Footer() {
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">T</span>
               </div>
-              <h3 className="text-white font-bold text-2xl">TF SSD</h3>
+              <div>
+                <h3 className="text-white font-bold text-2xl">TF SSD</h3>
+                <p className="text-indigo-400 text-xs">Guilin CoreFlash Technology Co., Ltd.</p>
+              </div>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               The world's first TF solid-state drive, featuring Open Particle Plug-in Architecture
