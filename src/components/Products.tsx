@@ -67,7 +67,7 @@ export default function Products() {
         </ScrollAnimation>
 
         {/* Product Tabs */}
-        <ScrollAnimation delay={200} className="flex justify-center gap-4 mb-12">
+        <ScrollAnimation delay={50} className="flex justify-center gap-4 mb-12">
           {products.map((product, index) => (
             <button
               key={index}
@@ -86,7 +86,7 @@ export default function Products() {
         {/* Products Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" style={{ perspective: '1000px' }}>
           {products.map((product, index) => (
-            <ScrollAnimation key={index} delay={400 + index * 200}>
+            <ScrollAnimation key={index} delay={50 + index * 50}>
               <div
                 className={`relative group transition-all duration-500 ${
                   activeProduct === index ? 'scale-100 opacity-100' : 'scale-95 opacity-70'

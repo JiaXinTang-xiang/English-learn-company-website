@@ -78,7 +78,7 @@ export default function Team() {
         </ScrollAnimation>
 
         {/* Team Photo */}
-        <ScrollAnimation delay={200}>
+        <ScrollAnimation delay={50}>
           <div className="mb-16 rounded-2xl overflow-hidden shadow-2xl relative group border border-indigo-500/20">
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/80 via-transparent to-transparent z-10" />
             <img
@@ -96,7 +96,7 @@ export default function Team() {
         {/* Team Members Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" style={{ perspective: '1000px' }}>
           {teamMembers.map((member, index) => (
-            <ScrollAnimation key={index} delay={300 + index * 100}>
+            <ScrollAnimation key={index} delay={50 + index * 30}>
               <div
                 className="relative group"
                 style={{ transformStyle: 'preserve-3d' }}

@@ -90,7 +90,7 @@ export default function News() {
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
           {displayedNews.map((news, index) => (
-            <ScrollAnimation key={news.id} delay={200 + index * 150}>
+            <ScrollAnimation key={news.id} delay={50 + index * 40}>
               <article
                 className="relative group"
                 style={{ transformStyle: 'preserve-3d' }}

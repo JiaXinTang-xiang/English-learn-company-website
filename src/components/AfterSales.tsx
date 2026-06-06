@@ -134,7 +134,7 @@ export default function AfterSales() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
           {services.map((service, index) => (
-            <ScrollAnimation key={index} delay={200 + index * 100}>
+            <ScrollAnimation key={index} delay={50 + index * 30}>
               <div
                 className="relative group cursor-pointer"
                 onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
