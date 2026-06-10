@@ -15,16 +15,15 @@ export default function ScrollAnimation({ children, className = '', delay = 0, d
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // 更短的延迟，更平滑的出现
           setTimeout(() => {
             setIsVisible(true)
-          }, Math.min(delay, 200)) // 最大延迟 200ms
+          }, Math.min(delay, 200))
           observer.unobserve(entry.target)
         }
       },
       {
-        threshold: 0.05, // 更早触发
-        rootMargin: '0px 0px -30px 0px' // 更小的边距
+        threshold: 0.05,
+        rootMargin: '0px 0px -30px 0px'
       }
     )
 
@@ -38,15 +37,15 @@ export default function ScrollAnimation({ children, className = '', delay = 0, d
   const getTransform = () => {
     switch (direction) {
       case 'up':
-        return 'translateY(30px)' // 减小距离
+        return 'translateY(60px)'
       case 'down':
-        return 'translateY(-30px)'
+        return 'translateY(-60px)'
       case 'left':
-        return 'translateX(30px)'
+        return 'translateX(60px)'
       case 'right':
-        return 'translateX(-30px)'
+        return 'translateX(-60px)'
       default:
-        return 'translateY(30px)'
+        return 'translateY(60px)'
     }
   }
 
@@ -57,7 +56,7 @@ export default function ScrollAnimation({ children, className = '', delay = 0, d
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translate(0)' : getTransform(),
-        transition: `opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)`
+        transition: `opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)`
       }}
     >
       {children}
