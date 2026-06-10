@@ -180,7 +180,7 @@ export default function MouseEffects() {
   }, [mousePos, trailColorIndex])
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[9999]" style={{ cursor: 'none' }}>
+    <div className="fixed inset-0 pointer-events-none z-[9999]">
       {/* Click Ripples */}
       {ripples.map(ripple => (
         <div key={ripple.id} className="absolute" style={{ left: ripple.x, top: ripple.y }}>
@@ -274,47 +274,6 @@ export default function MouseEffects() {
           <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${trail.color} blur-[1px]`} />
         </div>
       ))}
-
-      {/* Custom Cursor */}
-      <div
-        className="fixed pointer-events-none"
-        style={{
-          left: mousePos.x,
-          top: mousePos.y,
-          transform: 'translate(-50%, -50%)',
-          transition: 'left 0.05s linear, top 0.05s linear'
-        }}
-      >
-        {/* Outer ring */}
-        <div
-          className={`w-8 h-8 rounded-full border-2 transition-all duration-150 ${isClicking
-            ? 'scale-[0.6] border-purple-500/80 shadow-[0_0_20px_rgba(147,51,234,0.6)]'
-            : 'border-white/30'
-          }`}
-          style={{
-            animation: isClicking ? 'none' : 'cursor-glow 2s ease-in-out infinite'
-          }}
-        />
-        {/* Inner dot */}
-        <div
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-150 ${isClicking ? 'w-3 h-3 scale-125' : 'w-1.5 h-1.5'
-            }`}
-        />
-      </div>
-
-      {/* Cursor glow */}
-      <div
-        className="fixed pointer-events-none"
-        style={{
-          left: mousePos.x,
-          top: mousePos.y,
-          transform: 'translate(-50%, -50%)',
-          width: '120px',
-          height: '120px',
-          background: 'radial-gradient(circle, rgba(147, 51, 234, 0.12) 0%, transparent 70%)',
-          transition: 'left 0.1s ease-out, top 0.1s ease-out'
-        }}
-      />
     </div>
   )
 }

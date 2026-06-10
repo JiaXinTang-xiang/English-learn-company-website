@@ -42,7 +42,7 @@ export default function Particles() {
 
     const init = () => {
       resize()
-      particles = Array.from({ length: 50 }, createParticle)
+      particles = Array.from({ length: 80 }, createParticle)
     }
 
     const animate = () => {
