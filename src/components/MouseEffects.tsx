@@ -106,7 +106,7 @@ export default function MouseEffects() {
       setMousePos({ x: e.clientX, y: e.clientY })
 
       const now = Date.now()
-      if (now - lastTrailTime.current > 16) {
+      if (now - lastTrailTime.current > 50) {
         lastTrailTime.current = now
 
         const newTrail: Trail = {

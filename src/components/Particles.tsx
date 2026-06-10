@@ -42,7 +42,7 @@ export default function Particles() {
 
     const init = () => {
       resize()
-      particles = Array.from({ length: 80 }, createParticle)
+      particles = Array.from({ length: 50 }, createParticle)
     }
 
     const animate = () => {
@@ -66,24 +66,6 @@ export default function Particles() {
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`
         ctx.fill()
-
-        // Draw connections
-        particles.forEach((otherParticle, otherIndex) => {
-          if (index === otherIndex) return
-          const dx = particle.x - otherParticle.x
-          const dy = particle.y - otherParticle.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 150) {
-            const lineOpacity = (1 - distance / 150) * 0.15
-            ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(255, 255, 255, ${lineOpacity})`
-            ctx.lineWidth = 0.5
-            ctx.stroke()
-          }
-        })
       })
 
       animationId = requestAnimationFrame(animate)
