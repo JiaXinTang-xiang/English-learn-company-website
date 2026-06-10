@@ -62,10 +62,17 @@ export default function Particles() {
         const lifeRatio = particle.life / particle.maxLife
         const opacity = particle.opacity * (1 - lifeRatio)
 
+        // 发光效果
+        ctx.shadowBlur = particle.size * 3
+        ctx.shadowColor = `rgba(139, 92, 246, ${opacity * 0.8})`
+
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`
+        ctx.fillStyle = `rgba(139, 92, 246, ${opacity})`
         ctx.fill()
+
+        // 重置阴影
+        ctx.shadowBlur = 0
       })
 
       animationId = requestAnimationFrame(animate)
