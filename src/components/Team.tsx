@@ -93,58 +93,6 @@ export default function Team() {
           </div>
         </ScrollAnimation>
 
-        {/* Departments & Leadership */}
-        <ScrollAnimation delay={100}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {/* Departments */}
-            <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-300">
-              <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                <span className="text-indigo-400">🏢</span> Our Departments
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { name: 'R&D Department', desc: 'Product development & innovation' },
-                  { name: 'Marketing Department', desc: 'Brand promotion & sales' },
-                  { name: 'Customer Service', desc: 'After-sales support & care' }
-                ].map((dept, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-indigo-500" />
-                    <div>
-                      <span className="text-white text-sm font-medium">{dept.name}</span>
-                      <span className="text-gray-400 text-xs ml-2">- {dept.desc}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Leadership */}
-            <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-300">
-              <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                <span className="text-indigo-400">👔</span> Our Leadership
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { name: 'Chen Junyu', role: 'CEO', desc: 'Product strategy & vision' },
-                  { name: 'Li Zijia', role: 'CTO', desc: 'Technology & R&D' },
-                  { name: 'Liu Junjun', role: 'CMO', desc: 'Marketing & growth' }
-                ].map((leader, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">
-                      {leader.name.charAt(0)}
-                    </div>
-                    <div>
-                      <span className="text-white text-sm font-medium">{leader.name}</span>
-                      <span className="text-indigo-400 text-xs ml-2">{leader.role}</span>
-                      <span className="text-gray-400 text-xs ml-2">- {leader.desc}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </ScrollAnimation>
-
         {/* Team Members Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" style={{ perspective: '1000px' }}>
           {teamMembers.map((member, index) => (
