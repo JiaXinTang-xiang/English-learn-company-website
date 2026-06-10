@@ -150,6 +150,9 @@ export default function Footer() {
               ))}
             </div>
           </div>
+          <p className="text-gray-600 text-xs text-center mt-4">
+            本网站仅用于考试
+          </p>
         </div>
       </div>
     </footer>
