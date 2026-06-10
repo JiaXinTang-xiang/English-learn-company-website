@@ -35,8 +35,8 @@ export default function Hero() {
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20
+        x: (e.clientX / window.innerWidth - 0.5) * 40,
+        y: (e.clientY / window.innerHeight - 0.5) * 40
       })
     }
 
@@ -67,30 +67,33 @@ export default function Hero() {
       {/* Glowing orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-96 h-96 rounded-full blur-3xl opacity-20 animate-pulse"
+          className="absolute w-96 h-96 rounded-full blur-3xl opacity-30 animate-pulse"
           style={{
-            background: 'radial-gradient(circle, rgba(147, 51, 234, 0.5) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(147, 51, 234, 0.7) 0%, transparent 70%)',
             left: '10%',
             top: '20%',
-            transform: `translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)`
+            transform: `translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)`,
+            animationDuration: '3s'
           }}
         />
         <div
-          className="absolute w-80 h-80 rounded-full blur-3xl opacity-15 animate-pulse delay-1000"
+          className="absolute w-80 h-80 rounded-full blur-3xl opacity-25 animate-pulse"
           style={{
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.7) 0%, transparent 70%)',
             right: '10%',
             bottom: '20%',
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`
+            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+            animationDuration: '4s'
           }}
         />
         <div
-          className="absolute w-64 h-64 rounded-full blur-3xl opacity-10 animate-pulse delay-500"
+          className="absolute w-64 h-64 rounded-full blur-3xl opacity-20 animate-pulse"
           style={{
-            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.5) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.7) 0%, transparent 70%)',
             left: '50%',
             top: '50%',
-            transform: `translate(-50%, -50%) translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`
+            transform: `translate(-50%, -50%) translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`,
+            animationDuration: '3.5s'
           }}
         />
       </div>
@@ -107,7 +110,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         {/* Company Name & Badge */}
         <div
-          className={`flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-md border border-indigo-500/20">
             <span className="text-indigo-400 text-sm font-medium">Guilin CoreFlash Technology Co., Ltd.</span>
@@ -120,7 +123,7 @@ export default function Hero() {
 
         {/* Main Title with Typewriter Effect */}
         <h1
-          className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-6 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-6 transition-all duration-500 delay-100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <div className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-100 to-gray-300 drop-shadow-2xl">
             <TypewriterEffect text="TF Solid" delay={150} />
@@ -132,14 +135,14 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p
-          className={`text-xl sm:text-2xl md:text-3xl text-gray-200 mb-4 font-light transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`text-xl sm:text-2xl md:text-3xl text-gray-200 mb-4 font-light transition-all duration-500 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           The World's First TF Solid State Drive
         </p>
 
         {/* Description */}
         <p
-          className={`text-base sm:text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`text-base sm:text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-500 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           Featuring <span className="text-purple-400 font-semibold">Open Particle Plug-in Architecture</span> and
           <span className="text-blue-400 font-semibold"> Adaptive Parallel Capacity Pool Technology</span>
@@ -149,7 +152,7 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div
-          className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-500 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <a
             href="#products"
