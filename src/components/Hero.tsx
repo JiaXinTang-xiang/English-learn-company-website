@@ -184,58 +184,6 @@ export default function Hero() {
             </div>
           ))}
         </div>
-
-        {/* Departments & Leadership */}
-        <div
-          className={`mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto transition-all duration-1000 delay-1200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-        >
-          {/* Departments */}
-          <div className="bg-white/5 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6">
-            <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-              <span className="text-indigo-400">🏢</span> Our Departments
-            </h3>
-            <div className="space-y-3">
-              {[
-                { name: 'R&D Department', desc: 'Product development & innovation' },
-                { name: 'Marketing Department', desc: 'Brand promotion & sales' },
-                { name: 'Customer Service', desc: 'After-sales support & care' }
-              ].map((dept, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-indigo-500" />
-                  <div>
-                    <span className="text-white text-sm font-medium">{dept.name}</span>
-                    <span className="text-gray-400 text-xs ml-2">- {dept.desc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Leadership */}
-          <div className="bg-white/5 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6">
-            <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-              <span className="text-indigo-400">👔</span> Our Leadership
-            </h3>
-            <div className="space-y-3">
-              {[
-                { name: 'Chen Junyu', role: 'CEO', desc: 'Product strategy & vision' },
-                { name: 'Li Zijia', role: 'CTO', desc: 'Technology & R&D' },
-                { name: 'Liu Junjun', role: 'CMO', desc: 'Marketing & growth' }
-              ].map((leader, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">
-                    {leader.name.charAt(0)}
-                  </div>
-                  <div>
-                    <span className="text-white text-sm font-medium">{leader.name}</span>
-                    <span className="text-indigo-400 text-xs ml-2">{leader.role}</span>
-                    <span className="text-gray-400 text-xs ml-2">- {leader.desc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Scroll indicator */}
