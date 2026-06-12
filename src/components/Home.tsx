@@ -87,9 +87,77 @@ export default function Home() {
           </ScrollAnimation>
         </div>
 
-        {/* Business Scope */}
-        <ScrollAnimation delay={300}>
-          <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300 mb-16">
+        {/* Departments & Leadership - 在业务前面 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16" style={{ perspective: '1000px' }}>
+          {/* Departments */}
+          <ScrollAnimation delay={300}>
+            <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
+              <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                  <span className="text-indigo-400">🏢</span> 我们的部门
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { name: '研发部', desc: '产品开发与创新' },
+                    { name: '市场营销部', desc: '品牌推广与销售' },
+                    { name: '客户服务', desc: '售后服务与关怀' }
+                  ].map((dept, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                      <div>
+                        <span className="text-white text-sm font-medium">{dept.name}</span>
+                        <span className="text-gray-400 text-xs ml-2">- {dept.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              </div>
+            </div>
+          </ScrollAnimation>
+
+          {/* Leadership */}
+          <ScrollAnimation delay={400}>
+            <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
+              <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                  <span className="text-indigo-400">👔</span> 我们的领导力
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { name: '陈俊宇', role: 'CEO', desc: '产品战略与愿景' },
+                    { name: '李梓嘉', role: 'CTO', desc: '技术研发' },
+                    { name: '刘俊军', role: 'CMO', desc: '市场营销与增长' }
+                  ].map((leader, index) => (
+                    <div key={index} className="flex items-center gap-3 group/leader">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold transform transition-all duration-300 group-hover/leader:scale-110 group-hover/leader:rotate-6">
+                        {leader.name.charAt(0)}
+                      </div>
+                      <div>
+                        <span className="text-white text-sm font-medium">{leader.name}</span>
+                        <span className="text-indigo-400 text-xs ml-2">{leader.role}</span>
+                        <span className="text-gray-400 text-xs ml-2">- {leader.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
+
+        {/* Business Scope - 在部门后面 */}
+        <ScrollAnimation delay={500}>
+          <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300">
             <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
               <span className="text-indigo-400">💼</span>
               Our Business Scope
@@ -121,74 +189,6 @@ export default function Home() {
             </div>
           </div>
         </ScrollAnimation>
-
-        {/* Departments & Leadership */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ perspective: '1000px' }}>
-          {/* Departments */}
-          <ScrollAnimation delay={400}>
-            <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
-              <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
-                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </div>
-                <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                  <span className="text-indigo-400">🏢</span> Our Departments
-                </h3>
-                <div className="space-y-3">
-                  {[
-                    { name: 'R&D Department', desc: 'Product development & innovation' },
-                    { name: 'Marketing Department', desc: 'Brand promotion & sales' },
-                    { name: 'Customer Service', desc: 'After-sales support & care' }
-                  ].map((dept, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-indigo-500" />
-                      <div>
-                        <span className="text-white text-sm font-medium">{dept.name}</span>
-                        <span className="text-gray-400 text-xs ml-2">- {dept.desc}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              </div>
-            </div>
-          </ScrollAnimation>
-
-          {/* Leadership */}
-          <ScrollAnimation delay={500}>
-            <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
-              <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
-                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </div>
-                <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                  <span className="text-indigo-400">👔</span> Our Leadership
-                </h3>
-                <div className="space-y-3">
-                  {[
-                    { name: 'Chen Junyu', role: 'CEO', desc: 'Product strategy & vision' },
-                    { name: 'Li Zijia', role: 'CTO', desc: 'Technology & R&D' },
-                    { name: 'Liu Junjun', role: 'CMO', desc: 'Marketing & growth' }
-                  ].map((leader, index) => (
-                    <div key={index} className="flex items-center gap-3 group/leader">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold transform transition-all duration-300 group-hover/leader:scale-110 group-hover/leader:rotate-6">
-                        {leader.name.charAt(0)}
-                      </div>
-                      <div>
-                        <span className="text-white text-sm font-medium">{leader.name}</span>
-                        <span className="text-indigo-400 text-xs ml-2">{leader.role}</span>
-                        <span className="text-gray-400 text-xs ml-2">- {leader.desc}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
       </div>
     </section>
   )
