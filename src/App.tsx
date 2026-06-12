@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Home from './components/Home'
 import Team from './components/Team'
 import Products from './components/Products'
 import News from './components/News'
@@ -13,6 +14,7 @@ export default function App() {
       <MouseEffects />
       <Navbar />
       <Hero />
+      <Home />
       <Team />
       <Products />
       <News />
