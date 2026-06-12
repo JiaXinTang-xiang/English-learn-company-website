@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import product1Image from '../assets/image000.png'
 import product2Image from '../assets/image0000.png'
+import product3Image from '../assets/image5.png'
+import product4Image from '../assets/image6.png'
 import ScrollAnimation from './ScrollAnimation'
 
 const products = [
@@ -32,6 +34,36 @@ const products = [
     ],
     description: 'Standard TF SSD, the best value for money',
     gradient: 'from-purple-500 to-pink-500',
+    popular: false
+  },
+  {
+    name: 'TF SSD Lite',
+    image: product3Image,
+    price: '¥149',
+    capacity: '32GB',
+    features: [
+      'Read Speed: 400MB/s',
+      'Write Speed: 350MB/s',
+      'Compact Design',
+      'Energy Efficient'
+    ],
+    description: 'Lightweight TF SSD for basic storage needs',
+    gradient: 'from-blue-500 to-cyan-500',
+    popular: false
+  },
+  {
+    name: 'TF SSD Max',
+    image: product4Image,
+    price: '¥399',
+    capacity: '256GB',
+    features: [
+      'Read Speed: 600MB/s',
+      'Write Speed: 550MB/s',
+      'Maximum Capacity',
+      'Premium Performance'
+    ],
+    description: 'Maximum capacity TF SSD for power users',
+    gradient: 'from-orange-500 to-red-500',
     popular: false
   }
 ]

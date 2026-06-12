@@ -1,48 +1,63 @@
 import teamImage from '../assets/team.png'
 import ScrollAnimation from './ScrollAnimation'
+import Avatar from './Avatar'
 
 const teamMembers = [
   {
     name: 'Chen Junyu',
     role: 'Product Manager',
     description: 'TF SSD product planning and market strategy',
-    gradient: 'from-indigo-500 to-blue-500'
+    gradient: 'from-indigo-500 to-blue-500',
+    color: 'blue',
+    bio: 'Led the development of the world\'s first TF SSD. 10+ years experience in storage industry. Won "Innovation Leader Award" in 2024.'
   },
   {
     name: 'Li Zijia',
     role: 'Technical Director',
     description: 'Product R&D and technology innovation',
-    gradient: 'from-purple-500 to-indigo-500'
+    gradient: 'from-purple-500 to-indigo-500',
+    color: 'purple',
+    bio: 'Core inventor of Open Particle Plug-in Architecture. Holds 5 patents in storage technology. Former senior engineer at a leading tech company.'
   },
   {
     name: 'Liu Junjun',
     role: 'Project Director',
     description: 'Project coordination and execution management',
-    gradient: 'from-blue-500 to-purple-500'
+    gradient: 'from-blue-500 to-purple-500',
+    color: 'green',
+    bio: 'Successfully managed 3 major product launches. Expert in cross-department coordination. Awarded "Best Project Manager" twice.'
   },
   {
     name: 'Yu Wanmin',
     role: 'Designer',
     description: 'Product design and visual presentation',
-    gradient: 'from-violet-500 to-purple-500'
+    gradient: 'from-violet-500 to-purple-500',
+    color: 'orange',
+    bio: 'Designed the TF SSD product series. Winner of 2023 National Design Competition. Passionate about user-centered design.'
   },
   {
     name: 'Meng Junrong',
     role: 'Media Specialist',
     description: 'Product photography and content creation',
-    gradient: 'from-purple-500 to-pink-500'
+    gradient: 'from-purple-500 to-pink-500',
+    color: 'red',
+    bio: 'Created all product videos and photos. Social media content reached 100K+ views. Professional photographer with 5 years experience.'
   },
   {
     name: 'Xie Yongning',
     role: 'Post-production',
     description: 'Video editing and post-processing',
-    gradient: 'from-indigo-500 to-violet-500'
+    gradient: 'from-indigo-500 to-violet-500',
+    color: 'yellow',
+    bio: 'Edited all company promotional videos. Skilled in motion graphics and visual effects. Won "Best Editing" in university film festival.'
   },
   {
     name: 'Chen Xingyu',
     role: 'Content Editor',
     description: 'Copywriting and content planning',
-    gradient: 'from-blue-500 to-indigo-500'
+    gradient: 'from-blue-500 to-indigo-500',
+    color: 'pink',
+    bio: 'Wrote all website content and news articles. Excellent English writing skills. Former editor of university newspaper.'
   }
 ]
 
@@ -113,10 +128,8 @@ export default function Team() {
 
                   {/* Avatar */}
                   <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-14 h-14 bg-gradient-to-br ${member.gradient} rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-indigo-500/40`}>
-                      <span className="text-white font-bold text-xl">
-                        {member.name.charAt(0)}
-                      </span>
+                    <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Avatar name={member.name} color={member.color} size="md" />
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-lg transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
@@ -127,9 +140,16 @@ export default function Team() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-300">
+                  <p className="text-gray-400 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-300 mb-3">
                     {member.description}
                   </p>
+
+                  {/* Bio - Achievements */}
+                  <div className="bg-white/5 rounded-lg p-3 border border-indigo-500/10">
+                    <p className="text-gray-300 text-xs leading-relaxed">
+                      ⭐ {member.bio}
+                    </p>
+                  </div>
 
                   {/* Bottom glow line */}
                   <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${member.gradient} rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />

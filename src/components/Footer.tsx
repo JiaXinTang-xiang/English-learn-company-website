@@ -76,7 +76,7 @@ export default function Footer() {
                 { name: 'Team', href: '#team' },
                 { name: 'Products', href: '#products' },
                 { name: 'News', href: '#news' },
-                { name: 'After-sales', href: '#after-sales' }
+                { name: 'After-sales Service', href: '#after-sales' }
               ].map((link, index) => (
                 <li key={index}>
                   <a

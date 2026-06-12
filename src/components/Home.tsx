@@ -98,13 +98,13 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 </div>
                 <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                  <span className="text-indigo-400">🏢</span> 我们的部门
+                  <span className="text-indigo-400">🏢</span> Our Departments
                 </h3>
                 <div className="space-y-3">
                   {[
-                    { name: '研发部', desc: '产品开发与创新' },
-                    { name: '市场营销部', desc: '品牌推广与销售' },
-                    { name: '客户服务', desc: '售后服务与关怀' }
+                    { name: 'R&D Department', desc: 'Product development & innovation' },
+                    { name: 'Marketing Department', desc: 'Brand promotion & sales' },
+                    { name: 'Customer Service', desc: 'After-sales support & care' }
                   ].map((dept, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-indigo-500" />
@@ -129,13 +129,13 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 </div>
                 <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                  <span className="text-indigo-400">👔</span> 我们的领导力
+                  <span className="text-indigo-400">👔</span> Our Leadership
                 </h3>
                 <div className="space-y-3">
                   {[
-                    { name: '陈俊宇', role: 'CEO', desc: '产品战略与愿景' },
-                    { name: '李梓嘉', role: 'CTO', desc: '技术研发' },
-                    { name: '刘俊军', role: 'CMO', desc: '市场营销与增长' }
+                    { name: 'Chen Junyu', role: 'CEO', desc: 'Product strategy & vision' },
+                    { name: 'Li Zijia', role: 'CTO', desc: 'Technology & R&D' },
+                    { name: 'Liu Junjun', role: 'CMO', desc: 'Marketing & growth' }
                   ].map((leader, index) => (
                     <div key={index} className="flex items-center gap-3 group/leader">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold transform transition-all duration-300 group-hover/leader:scale-110 group-hover/leader:rotate-6">
