@@ -214,7 +214,7 @@ export default function AfterSales() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {[
-                    { value: '400-XXX-XXXX', label: 'Hotline', icon: '📞' },
+                    { value: '400-666-6666', label: 'Hotline', icon: '📞' },
                     { value: 'support@tfssd.com', label: 'Email', icon: '✉️' },
                     { value: '24/7', label: 'Service Hours', icon: '🕐' }
                   ].map((contact, index) => (
