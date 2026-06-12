@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import product1Image from '../assets/image5.png'
-import product2Image from '../assets/image6.png'
+import product1Image from '../assets/image000.png'
+import product2Image from '../assets/image0000.png'
 import ScrollAnimation from './ScrollAnimation'
 
 const products = [
