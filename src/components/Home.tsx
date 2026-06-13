@@ -28,60 +28,74 @@ export default function Home() {
         </ScrollAnimation>
 
         {/* Company Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16" style={{ perspective: '1000px' }}>
           {/* Company Overview */}
           <ScrollAnimation delay={50}>
-            <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300">
-              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                <span className="text-indigo-400">🏢</span>
-                Our Company
-              </h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Guilin CoreFlash Technology Co., Ltd. is a leading technology company based in Guilin, China.
-                We specialize in innovative storage solutions and are proud to be the creator of the world's first TF Solid State Drive.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                Founded in 2022, our company has grown to over 50 talented team members dedicated to pushing the boundaries of storage technology.
-              </p>
+            <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
+              <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                  <span className="text-indigo-400">🏢</span>
+                  Our Company
+                </h3>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  Guilin CoreFlash Technology Co., Ltd. is a leading technology company based in Guilin, China.
+                  We specialize in innovative storage solutions and are proud to be the creator of the world's first TF Solid State Drive.
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  Founded in 2022, our company has grown to over 50 talented team members dedicated to pushing the boundaries of storage technology.
+                </p>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              </div>
             </div>
           </ScrollAnimation>
 
           {/* Location & History */}
           <ScrollAnimation delay={100}>
-            <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300">
-              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                <span className="text-indigo-400">📍</span>
-                Location & History
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
-                  <div>
-                    <span className="text-white font-medium">Headquarters:</span>
-                    <span className="text-gray-300 ml-2">Guilin, Guangxi, China</span>
+            <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
+              <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                  <span className="text-indigo-400">📍</span>
+                  Location & History
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
+                    <div>
+                      <span className="text-white font-medium">Headquarters:</span>
+                      <span className="text-gray-300 ml-2">Guilin, Guangxi, China</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
+                    <div>
+                      <span className="text-white font-medium">Founded:</span>
+                      <span className="text-gray-300 ml-2">2022</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
+                    <div>
+                      <span className="text-white font-medium">Team Size:</span>
+                      <span className="text-gray-300 ml-2">50+ members</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
+                    <div>
+                      <span className="text-white font-medium">Core Business:</span>
+                      <span className="text-gray-300 ml-2">Storage Technology Solutions</span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
-                  <div>
-                    <span className="text-white font-medium">Founded:</span>
-                    <span className="text-gray-300 ml-2">2022</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
-                  <div>
-                    <span className="text-white font-medium">Team Size:</span>
-                    <span className="text-gray-300 ml-2">50+ members</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2" />
-                  <div>
-                    <span className="text-white font-medium">Core Business:</span>
-                    <span className="text-gray-300 ml-2">Storage Technology Solutions</span>
-                  </div>
-                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
           </ScrollAnimation>
@@ -157,35 +171,42 @@ export default function Home() {
 
         {/* Business Scope - 在部门后面 */}
         <ScrollAnimation delay={250}>
-          <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
-              <span className="text-indigo-400">💼</span>
-              Our Business Scope
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {[
-                {
-                  title: 'Product R&D',
-                  desc: 'Design and develop innovative TF SSD products with cutting-edge technology',
-                  icon: '🔬'
-                },
-                {
-                  title: 'Storage Solutions',
-                  desc: 'Provide comprehensive storage solutions for individuals and businesses',
-                  icon: '💾'
-                },
-                {
-                  title: 'Technical Services',
-                  desc: 'Offer professional technical support and after-sales service worldwide',
-                  icon: '🛠️'
-                }
-              ].map((item, index) => (
-                <div key={index} className="text-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
-                  <div className="text-4xl mb-3">{item.icon}</div>
-                  <h4 className="text-white font-bold mb-2">{item.title}</h4>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
-                </div>
-              ))}
+          <div className="relative group" style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}>
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
+            <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2">
+              <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
+                <span className="text-indigo-400">💼</span>
+                Our Business Scope
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'Product R&D',
+                    desc: 'Design and develop innovative TF SSD products with cutting-edge technology',
+                    icon: '🔬'
+                  },
+                  {
+                    title: 'Storage Solutions',
+                    desc: 'Provide comprehensive storage solutions for individuals and businesses',
+                    icon: '💾'
+                  },
+                  {
+                    title: 'Technical Services',
+                    desc: 'Offer professional technical support and after-sales service worldwide',
+                    icon: '🛠️'
+                  }
+                ].map((item, index) => (
+                  <div key={index} className="text-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <div className="text-4xl mb-3">{item.icon}</div>
+                    <h4 className="text-white font-bold mb-2">{item.title}</h4>
+                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-b-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             </div>
           </div>
         </ScrollAnimation>
