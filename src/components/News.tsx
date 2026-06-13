@@ -89,7 +89,7 @@ export default function News() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-md border border-indigo-500/20 mb-6">
             <span className="text-indigo-400 text-sm font-medium">News</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text-animated mb-4">
             Company News
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">

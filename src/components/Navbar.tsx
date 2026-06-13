@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const navItems = [
   { name: 'Home', href: '#about' },
@@ -10,9 +10,28 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-indigo-500/20">
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-white/5">
+        <div
+          className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -29,7 +48,7 @@ export default function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/5"
+                  className="nav-link relative text-gray-400 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/5"
                 >
                   {item.name}
                 </a>
@@ -73,7 +92,7 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className="text-gray-400 hover:text-white block px-4 py-3 rounded-lg text-base font-medium hover:bg-white/5"
+              className="nav-link relative text-gray-400 hover:text-white block px-4 py-3 rounded-lg text-base font-medium hover:bg-white/5"
               onClick={() => setIsOpen(false)}
             >
               {item.name}

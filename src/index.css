@@ -41,6 +41,42 @@ body {
   color: #fff;
 }
 
+/* Animated gradient text for section headers */
+.gradient-text-animated {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #c084fc 50%, #764ba2 70%, #667eea 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Nav link hover underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
 /* Custom animations */
 @keyframes slide-right {
   0% { transform: translateX(-100%); }
