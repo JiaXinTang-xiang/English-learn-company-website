@@ -1,5 +1,10 @@
 import { useState } from 'react'
 import ScrollAnimation from './ScrollAnimation'
+import newsImg1 from '../assets/news/image.png'
+import newsImg2 from '../assets/news/image2.png'
+import newsImg3 from '../assets/news/image3.png'
+import newsImg4 from '../assets/news/image4.png'
+import newsImg5 from '../assets/news/image5.png'
 
 const allNewsItems = [
   {
@@ -7,6 +12,7 @@ const allNewsItems = [
     title: 'World\'s First TF SSD Officially Released',
     date: 'December 15, 2024',
     category: 'Product Launch',
+    image: newsImg1,
     summary: 'We have successfully developed and released the world\'s first TF solid-state drive, featuring Open Particle Plug-in Architecture and Adaptive Parallel Capacity Pool Technology, bringing revolutionary breakthroughs to the storage industry.',
     content: 'In the era of rapidly evolving storage technology, we have officially released the world\'s first TF solid-state drive. This product features an innovative Open Particle Plug-in Architecture, allowing users to freely replace storage particles based on their needs, greatly enhancing product flexibility and scalability. Meanwhile, the Adaptive Parallel Capacity Pool Technology has improved storage efficiency by over 50%, delivering an unprecedented storage experience for users.',
     gradient: 'from-indigo-500 to-blue-500',
@@ -17,6 +23,7 @@ const allNewsItems = [
     title: 'TF SSD Wins Annual Innovation Technology Award',
     date: 'January 20, 2025',
     category: 'Brand Honor',
+    image: newsImg2,
     summary: 'At the 2025 International Storage Technology Summit, our TF SSD won the "Annual Innovation Technology Award" for its innovative technical architecture and excellent performance.',
     content: 'At the recently concluded 2025 International Storage Technology Summit, our TF SSD product stood out among numerous competitors with its unique Open Particle Plug-in Architecture and Adaptive Parallel Capacity Pool Technology, winning the "Annual Innovation Technology Award". This honor is not only a recognition of our technical strength but also an affirmation of the entire team\'s innovative spirit.',
     gradient: 'from-purple-500 to-indigo-500',
@@ -27,6 +34,7 @@ const allNewsItems = [
     title: 'Strategic Partnerships with Leading Enterprises',
     date: 'March 10, 2025',
     category: 'Market Cooperation',
+    image: newsImg3,
     summary: 'We have signed strategic cooperation agreements with multiple domestic and international enterprises to jointly promote the application and development of TF SSD across various fields.',
     content: 'Recently, we have signed strategic cooperation agreements with several domestic and international enterprises. Our partners include smartphone manufacturers, data center operators, IoT device manufacturers, and more. Through these strategic partnerships, TF SSD will be promoted in a wider range of application scenarios, providing efficient and reliable storage solutions for more users.',
     gradient: 'from-blue-500 to-purple-500',
@@ -37,6 +45,7 @@ const allNewsItems = [
     title: 'Major Breakthrough in Next-Gen TF SSD Pro Development',
     date: 'April 8, 2025',
     category: 'R&D Update',
+    image: newsImg4,
     summary: 'The R&D team has successfully overcome multiple technical challenges, with the next-generation TF SSD Pro achieving read speeds of 720MB/s, setting a new performance record.',
     content: 'After three months of dedicated effort, our R&D team has achieved a major breakthrough in the development of the next-generation TF SSD Pro. The new product utilizes the latest controller chips and 3D NAND flash technology, with read speeds increasing from 520MB/s to 720MB/s and write speeds reaching 650MB/s. Additionally, the new product incorporates intelligent thermal control algorithms, effectively reducing temperatures during extended use and further improving product stability and lifespan.',
     gradient: 'from-violet-500 to-purple-500',
@@ -47,6 +56,7 @@ const allNewsItems = [
     title: 'Invited to Attend 2025 Global Storage Technology Conference',
     date: 'May 15, 2025',
     category: 'Industry Event',
+    image: newsImg5,
     summary: 'We have been invited to attend the 2025 Global Storage Technology Conference, where we will deliver a keynote speech sharing the innovative philosophy behind TF SSD.',
     content: 'We have received an invitation from the 2025 Global Storage Technology Conference Organizing Committee to attend this grand event in Shenzhen next month. Our Technical Director will deliver a keynote speech titled "Open Architecture: The Future of Storage Industry" at the main forum, sharing the innovative philosophy and technological breakthroughs of TF SSD with global peers. This is another recognition of our technical strength and an important opportunity to showcase the innovation capabilities of Chinese storage enterprises to the world.',
     gradient: 'from-indigo-500 to-violet-500',
@@ -107,6 +117,16 @@ export default function News() {
 
                   {/* Header with gradient */}
                   <div className={`h-1 bg-gradient-to-r ${news.gradient}`} />
+
+                  {/* News Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={news.image}
+                      alt={news.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111118] via-transparent to-transparent" />
+                  </div>
 
                   <div className="p-6 flex-1 flex flex-col">
                     {/* Category and Date */}
