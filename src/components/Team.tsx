@@ -1,6 +1,12 @@
 import teamImage from '../assets/team.png'
 import ScrollAnimation from './ScrollAnimation'
-import Avatar from './Avatar'
+import person1 from '../assets/person/1.png'
+import person2 from '../assets/person/2.png'
+import person3 from '../assets/person/3.png'
+import person4 from '../assets/person/4.png'
+import person5 from '../assets/person/5.png'
+import person6 from '../assets/person/6.png'
+import person7 from '../assets/person/7.png'
 
 const teamMembers = [
   {
@@ -8,7 +14,7 @@ const teamMembers = [
     role: 'Product Manager',
     description: 'TF SSD product planning and market strategy',
     gradient: 'from-indigo-500 to-blue-500',
-    color: 'blue',
+    avatar: person1,
     bio: 'Led the development of the world\'s first TF SSD. 10+ years experience in storage industry. Won "Innovation Leader Award" in 2024.'
   },
   {
@@ -16,7 +22,7 @@ const teamMembers = [
     role: 'Technical Director',
     description: 'Product R&D and technology innovation',
     gradient: 'from-purple-500 to-indigo-500',
-    color: 'purple',
+    avatar: person2,
     bio: 'Core inventor of Open Particle Plug-in Architecture. Holds 5 patents in storage technology. Former senior engineer at a leading tech company.'
   },
   {
@@ -24,7 +30,7 @@ const teamMembers = [
     role: 'Project Director',
     description: 'Project coordination and execution management',
     gradient: 'from-blue-500 to-purple-500',
-    color: 'green',
+    avatar: person3,
     bio: 'Successfully managed 3 major product launches. Expert in cross-department coordination. Awarded "Best Project Manager" twice.'
   },
   {
@@ -32,7 +38,7 @@ const teamMembers = [
     role: 'Designer',
     description: 'Product design and visual presentation',
     gradient: 'from-violet-500 to-purple-500',
-    color: 'orange',
+    avatar: person4,
     bio: 'Designed the TF SSD product series. Winner of 2023 National Design Competition. Passionate about user-centered design.'
   },
   {
@@ -40,7 +46,7 @@ const teamMembers = [
     role: 'Media Specialist',
     description: 'Product photography and content creation',
     gradient: 'from-purple-500 to-pink-500',
-    color: 'red',
+    avatar: person5,
     bio: 'Created all product videos and photos. Social media content reached 100K+ views. Professional photographer with 5 years experience.'
   },
   {
@@ -48,7 +54,7 @@ const teamMembers = [
     role: 'Post-production',
     description: 'Video editing and post-processing',
     gradient: 'from-indigo-500 to-violet-500',
-    color: 'yellow',
+    avatar: person6,
     bio: 'Edited all company promotional videos. Skilled in motion graphics and visual effects. Won "Best Editing" in university film festival.'
   },
   {
@@ -56,7 +62,7 @@ const teamMembers = [
     role: 'Content Editor',
     description: 'Copywriting and content planning',
     gradient: 'from-blue-500 to-indigo-500',
-    color: 'pink',
+    avatar: person7,
     bio: 'Wrote all website content and news articles. Excellent English writing skills. Former editor of university newspaper.'
   }
 ]
@@ -128,8 +134,12 @@ export default function Team() {
 
                   {/* Avatar */}
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                      <Avatar name={member.name} color={member.color} size="md" />
+                    <div className="w-14 h-14 rounded-xl overflow-hidden transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-indigo-500/30">
+                      <img
+                        src={member.avatar}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-lg transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
