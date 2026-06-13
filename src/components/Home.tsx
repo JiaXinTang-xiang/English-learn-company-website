@@ -30,7 +30,7 @@ export default function Home() {
         {/* Company Info Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Company Overview */}
-          <ScrollAnimation delay={100}>
+          <ScrollAnimation delay={50}>
             <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                 <span className="text-indigo-400">🏢</span>
@@ -47,7 +47,7 @@ export default function Home() {
           </ScrollAnimation>
 
           {/* Location & History */}
-          <ScrollAnimation delay={200}>
+          <ScrollAnimation delay={100}>
             <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                 <span className="text-indigo-400">📍</span>
@@ -90,7 +90,7 @@ export default function Home() {
         {/* Departments & Leadership - 在业务前面 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16" style={{ perspective: '1000px' }}>
           {/* Departments */}
-          <ScrollAnimation delay={300}>
+          <ScrollAnimation delay={150}>
             <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
               <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
@@ -121,7 +121,7 @@ export default function Home() {
           </ScrollAnimation>
 
           {/* Leadership */}
-          <ScrollAnimation delay={400}>
+          <ScrollAnimation delay={200}>
             <div className="relative group" style={{ transformStyle: 'preserve-3d' }}>
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
               <div className="relative bg-[#111118] border border-indigo-500/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotate-x-1">
@@ -156,7 +156,7 @@ export default function Home() {
         </div>
 
         {/* Business Scope - 在部门后面 */}
-        <ScrollAnimation delay={500}>
+        <ScrollAnimation delay={250}>
           <div className="bg-[#111118] border border-indigo-500/10 rounded-xl p-8 hover:border-indigo-500/30 transition-all duration-300">
             <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
               <span className="text-indigo-400">💼</span>
