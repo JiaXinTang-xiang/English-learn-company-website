@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import heroImage from '../assets/image2.png'
 import Particles from './Particles'
 
@@ -27,21 +27,45 @@ function TypewriterEffect({ text, delay = 100, className = '' }: { text: string;
 }
 
 export default function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isLoaded, setIsLoaded] = useState(false)
-
+  const bgRef = useRef<HTMLImageElement>(null)
+  const orb1Ref = useRef<HTMLDivElement>(null)
+  const orb2Ref = useRef<HTMLDivElement>(null)
+  const orb3Ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     setIsLoaded(true)
 
+    const mouse = { x: 0, y: 0 }
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 40,
-        y: (e.clientY / window.innerHeight - 0.5) * 40
-      })
+      mouse.x = (e.clientX / window.innerWidth - 0.5) * 40
+      mouse.y = (e.clientY / window.innerHeight - 0.5) * 40
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    let rafId: number
+    const update = () => {
+      const mx = mouse.x
+      const my = mouse.y
+      if (bgRef.current) {
+        bgRef.current.style.transform = `scale(1.1) translate(${mx * 0.5}px, ${my * 0.5}px)`
+      }
+      if (orb1Ref.current) {
+        orb1Ref.current.style.transform = `translate(${-mx}px, ${-my}px)`
+      }
+      if (orb2Ref.current) {
+        orb2Ref.current.style.transform = `translate(${mx}px, ${my}px)`
+      }
+      if (orb3Ref.current) {
+        orb3Ref.current.style.transform = `translate(-50%, -50%) translate(${mx * 0.5}px, ${my * 0.5}px)`
+      }
+      rafId = requestAnimationFrame(update)
+    }
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    rafId = requestAnimationFrame(update)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (
@@ -49,12 +73,11 @@ export default function Hero() {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <img
+          ref={bgRef}
           src={heroImage}
           alt="TF Solid State Drive"
-          className="w-full h-full object-cover scale-110 transition-transform duration-1000"
-          style={{
-            transform: `scale(1.1) translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`
-          }}
+          className="w-full h-full object-cover scale-110"
+          style={{ transform: 'scale(1.1) translate(0px, 0px)' }}
         />
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
@@ -67,32 +90,35 @@ export default function Hero() {
       {/* Glowing orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
+          ref={orb1Ref}
           className="absolute w-96 h-96 rounded-full blur-3xl opacity-30 animate-pulse"
           style={{
             background: 'radial-gradient(circle, rgba(147, 51, 234, 0.7) 0%, transparent 70%)',
             left: '10%',
             top: '20%',
-            transform: `translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)`,
+            transform: 'translate(0px, 0px)',
             animationDuration: '3s'
           }}
         />
         <div
+          ref={orb2Ref}
           className="absolute w-80 h-80 rounded-full blur-3xl opacity-25 animate-pulse"
           style={{
             background: 'radial-gradient(circle, rgba(59, 130, 246, 0.7) 0%, transparent 70%)',
             right: '10%',
             bottom: '20%',
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+            transform: 'translate(0px, 0px)',
             animationDuration: '4s'
           }}
         />
         <div
+          ref={orb3Ref}
           className="absolute w-64 h-64 rounded-full blur-3xl opacity-20 animate-pulse"
           style={{
             background: 'radial-gradient(circle, rgba(236, 72, 153, 0.7) 0%, transparent 70%)',
             left: '50%',
             top: '50%',
-            transform: `translate(-50%, -50%) translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`,
+            transform: 'translate(-50%, -50%) translate(0px, 0px)',
             animationDuration: '3.5s'
           }}
         />
