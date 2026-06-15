@@ -109,7 +109,7 @@ export default function News() {
                 <div className={`absolute -inset-2 bg-gradient-to-r ${news.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
 
                 {/* Card with 3D effect */}
-                <div className="relative bg-[#111118] rounded-xl overflow-hidden border border-indigo-500/10 group-hover:border-indigo-500/30 transition-all duration-500 h-full flex flex-col transform group-hover:-translate-y-2 group-hover:rotate-x-1">
+                <div className="relative bg-[#111118] rounded-xl overflow-hidden border border-indigo-500/10 group-hover:border-indigo-500/30 transition-all duration-500 h-full flex flex-col transform group-hover:scale-105 group-hover:-translate-y-2 group-hover:rotate-x-1">
                   {/* Shimmer effect */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -119,7 +119,7 @@ export default function News() {
                   <div className={`h-1 bg-gradient-to-r ${news.gradient}`} />
 
                   {/* News Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <img
                       src={news.image}
                       alt={news.title}
@@ -128,30 +128,30 @@ export default function News() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111118] via-transparent to-transparent" />
                   </div>
 
-                  <div className="p-6 flex-1 flex flex-col">
+                  <div className="p-8 flex-1 flex flex-col">
                     {/* Category and Date */}
                     <div className="flex items-center gap-3 mb-4">
                       <span className="text-2xl">{news.icon}</span>
-                      <span className={`text-xs px-3 py-1 rounded-full bg-gradient-to-r ${news.gradient} text-white font-medium`}>
+                      <span className={`text-sm px-3 py-1 rounded-full bg-gradient-to-r ${news.gradient} text-white font-medium`}>
                         {news.category}
                       </span>
-                      <span className="text-gray-500 text-sm ml-auto">{news.date}</span>
+                      <span className="text-gray-500 text-base ml-auto">{news.date}</span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200 transition-all duration-300">
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200 transition-all duration-300">
                       {news.title}
                     </h3>
 
                     {/* Summary */}
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+                    <p className="text-gray-300 text-base leading-relaxed mb-4 flex-1">
                       {expandedId === news.id ? news.content : news.summary}
                     </p>
 
                     {/* Read More Button */}
                     <button
                       onClick={() => setExpandedId(expandedId === news.id ? null : news.id)}
-                      className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${news.gradient} bg-clip-text text-transparent hover:gap-3 transition-all duration-200`}
+                      className={`inline-flex items-center gap-2 text-base font-semibold bg-gradient-to-r ${news.gradient} bg-clip-text text-transparent hover:gap-3 transition-all duration-200`}
                     >
                       {expandedId === news.id ? 'Collapse' : 'Read More'}
                       <svg
