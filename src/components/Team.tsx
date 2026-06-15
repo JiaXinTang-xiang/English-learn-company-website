@@ -126,15 +126,15 @@ export default function Team() {
                 <div className={`absolute -inset-2 bg-gradient-to-r ${member.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500`} />
 
                 {/* Card with 3D effect */}
-                <div className="relative bg-[#111118] rounded-xl p-8 transition-all duration-500 border border-indigo-500/10 group-hover:border-indigo-500/40 transform group-hover:scale-105 group-hover:-translate-y-2 group-hover:rotate-x-2 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
+                <div className="relative bg-[#111118] rounded-xl p-10 transition-all duration-500 border border-indigo-500/10 group-hover:border-indigo-500/40 transform group-hover:scale-108 group-hover:-translate-y-2 group-hover:rotate-x-2 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
                   {/* Shimmer effect on hover */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   </div>
 
                   {/* Avatar */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-xl overflow-hidden transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-indigo-500/30">
+                  <div className="flex items-center gap-5 mb-5">
+                    <div className="w-20 h-20 rounded-xl overflow-hidden transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-indigo-500/30">
                       <img
                         src={member.avatar}
                         alt={member.name}
@@ -142,8 +142,8 @@ export default function Team() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold text-xl transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
-                      <p className={`text-base font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                      <h3 className="text-white font-bold text-2xl transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
+                      <p className={`text-lg font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
                         {member.role}
                       </p>
                     </div>
