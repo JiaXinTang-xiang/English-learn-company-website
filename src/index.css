@@ -12,6 +12,7 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
   scroll-behavior: smooth;
+  font-size: 18px;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
   color: #e2e8f0;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 /* 科技风配色变量 */

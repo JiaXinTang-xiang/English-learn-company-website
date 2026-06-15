@@ -142,8 +142,8 @@ export default function Team() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-2xl transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
-                      <p className={`text-lg font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                      <h3 className="text-white font-bold text-2xl transition-all duration-500 group-hover:text-3xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
+                      <p className={`text-lg font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent transition-all duration-500 group-hover:text-xl`}>
                         {member.role}
                       </p>
                     </div>

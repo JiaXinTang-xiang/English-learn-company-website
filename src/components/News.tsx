@@ -139,12 +139,12 @@ export default function News() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200 transition-all duration-300">
+                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-4xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200 transition-all duration-500">
                       {news.title}
                     </h3>
 
                     {/* Summary */}
-                    <p className="text-gray-300 text-lg leading-relaxed mb-5 flex-1">
+                    <p className="text-gray-300 text-lg leading-relaxed mb-5 flex-1 transition-all duration-500 group-hover:text-xl">
                       {expandedId === news.id ? news.content : news.summary}
                     </p>
 
