@@ -126,7 +126,7 @@ export default function Team() {
                 <div className={`absolute -inset-2 bg-gradient-to-r ${member.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500`} />
 
                 {/* Card with 3D effect */}
-                <div className="relative bg-[#111118] rounded-xl p-10 transition-all duration-500 border border-indigo-500/10 group-hover:border-indigo-500/40 transform group-hover:scale-108 group-hover:-translate-y-2 group-hover:rotate-x-2 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
+                <div className="relative bg-[#111118] rounded-xl p-10 transition-all duration-500 border border-indigo-500/10 group-hover:border-indigo-500/40 transform group-hover:scale-115 group-hover:-translate-y-2 group-hover:rotate-x-2 group-hover:rotate-y-1" style={{ transformStyle: 'preserve-3d' }}>
                   {/* Shimmer effect on hover */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

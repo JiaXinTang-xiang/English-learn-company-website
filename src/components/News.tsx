@@ -109,7 +109,7 @@ export default function News() {
                 <div className={`absolute -inset-2 bg-gradient-to-r ${news.gradient} rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500`} />
 
                 {/* Card with 3D effect */}
-                <div className="relative bg-[#111118] rounded-xl overflow-hidden border border-indigo-500/10 group-hover:border-indigo-500/30 transition-all duration-500 h-full flex flex-col transform group-hover:scale-108 group-hover:-translate-y-2 group-hover:rotate-x-1">
+                <div className="relative bg-[#111118] rounded-xl overflow-hidden border border-indigo-500/10 group-hover:border-indigo-500/30 transition-all duration-500 h-full flex flex-col transform group-hover:scale-115 group-hover:-translate-y-2 group-hover:rotate-x-1">
                   {/* Shimmer effect */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
