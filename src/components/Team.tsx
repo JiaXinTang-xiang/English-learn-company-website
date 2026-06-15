@@ -133,8 +133,8 @@ export default function Team() {
                   </div>
 
                   {/* Avatar */}
-                  <div className="flex items-center gap-5 mb-5">
-                    <div className="w-20 h-20 rounded-xl overflow-hidden transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-indigo-500/30">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-indigo-500/30">
                       <img
                         src={member.avatar}
                         alt={member.name}
@@ -142,21 +142,21 @@ export default function Team() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-2xl transition-all duration-500 group-hover:text-3xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
-                      <p className={`text-lg font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent transition-all duration-500 group-hover:text-xl`}>
+                      <h3 className="text-white font-bold text-lg transition-all duration-500 group-hover:text-xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200">{member.name}</h3>
+                      <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent transition-all duration-500 group-hover:text-base`}>
                         {member.role}
                       </p>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-300 mb-3">
+                  <p className="text-gray-300 text-base leading-relaxed transition-colors duration-300 group-hover:text-white mb-4">
                     {member.description}
                   </p>
 
                   {/* Bio - Achievements */}
-                  <div className="bg-white/5 rounded-lg p-3 border border-indigo-500/10">
-                    <p className="text-gray-300 text-xs leading-relaxed">
+                  <div className="bg-white/5 rounded-lg p-4 border border-indigo-500/10">
+                    <p className="text-gray-300 text-sm leading-relaxed">
                       ⭐ {member.bio}
                     </p>
                   </div>

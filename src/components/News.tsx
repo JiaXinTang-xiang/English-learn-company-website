@@ -128,23 +128,23 @@ export default function News() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111118] via-transparent to-transparent" />
                   </div>
 
-                  <div className="p-10 flex-1 flex flex-col">
+                  <div className="p-8 flex-1 flex flex-col">
                     {/* Category and Date */}
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="text-3xl">{news.icon}</span>
-                      <span className={`text-base px-4 py-1 rounded-full bg-gradient-to-r ${news.gradient} text-white font-medium`}>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-2xl">{news.icon}</span>
+                      <span className={`text-sm px-3 py-1 rounded-full bg-gradient-to-r ${news.gradient} text-white font-medium`}>
                         {news.category}
                       </span>
-                      <span className="text-gray-400 text-lg ml-auto">{news.date}</span>
+                      <span className="text-gray-500 text-sm ml-auto">{news.date}</span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-4xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200 transition-all duration-500">
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-2xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-200 transition-all duration-500">
                       {news.title}
                     </h3>
 
                     {/* Summary */}
-                    <p className="text-gray-300 text-lg leading-relaxed mb-5 flex-1 transition-all duration-500 group-hover:text-xl">
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 transition-all duration-500 group-hover:text-base">
                       {expandedId === news.id ? news.content : news.summary}
                     </p>
 
