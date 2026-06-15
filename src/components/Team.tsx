@@ -155,8 +155,8 @@ export default function Team() {
                   </p>
 
                   {/* Bio - Achievements */}
-                  <div className="bg-white/5 rounded-lg p-4 border border-indigo-500/10">
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                  <div className="bg-white/5 rounded-lg p-4 border border-indigo-500/10 transition-all duration-500 group-hover:bg-white/10">
+                    <p className="text-gray-300 text-sm leading-relaxed transition-all duration-500 group-hover:text-base group-hover:text-white">
                       ⭐ {member.bio}
                     </p>
                   </div>
